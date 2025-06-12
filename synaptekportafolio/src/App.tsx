@@ -26,8 +26,13 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
-      
-      <Footer/>
+      <div className="min-h-screen flex flex-col">
+        <main className="flex-1">
+          {}
+          </main>
+          <Footer />
+      </div>
+     
     </Router>
   )
 }

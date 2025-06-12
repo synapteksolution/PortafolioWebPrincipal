@@ -71,7 +71,7 @@ export default function Footer() {
           <h3 className="text-white font-semibold mb-4 text-lg">Tecnologías</h3>
           <ul className="space-y-2 text-sm">
             <li>JavaScript, Python, TypeScript</li>
-            <li>React, Angular, Django</li>
+            <li>React, Vue </li>
             <li>Bases de Datos, CI/CD, Cloud</li>
           </ul>
         </div>
