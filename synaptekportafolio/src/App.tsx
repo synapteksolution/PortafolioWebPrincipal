@@ -2,6 +2,7 @@ import './App.css'
 import { NavigationMenuDemo } from './components/Navbar'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import Footer from './components/Footer';
 import SobreNosotros from './pages/AboutUs';
 import Servicios from './pages/Servicios';
 import Home from './pages/Home';
@@ -25,6 +26,8 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
+      
+      <Footer/>
     </Router>
   )
 }
