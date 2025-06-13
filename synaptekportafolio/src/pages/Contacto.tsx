@@ -7,9 +7,9 @@ function Contacto() {
       {/* Contenedor del texto */}
       <div style={{ flex: 1, minWidth: '300px', padding: '20px' }}>
         <p>
-          Synaptek te puede ayudar a montar tus páginas web.
+          <h2 className='text-amber-200 text-3xl'> .... En Synaptek estamos para ti ......  </h2>
         </p>
-        <p>
+        <p className='text-amber-600 text-2xl'>
           ¿Quieres saber más sobre todo lo que podemos hacer por tu empresa?
         </p>
         <p>

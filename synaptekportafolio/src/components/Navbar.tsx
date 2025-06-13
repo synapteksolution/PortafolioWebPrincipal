@@ -50,6 +50,7 @@ export function NavigationMenuDemo() {
             </ListItem>
           </NavigationMenuContent>
         </NavigationMenuItem>
+        <ImagenEmpresa/>
 
         <NavigationMenuItem>
           <NavigationMenuTrigger>Tecnologías</NavigationMenuTrigger>
@@ -87,9 +88,22 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
+      
     </NavigationMenu>
   )
 }
+
+export default function ImagenEmpresa(){
+  return(
+
+    <div>
+      <img src="synapteksolution.png" alt="imagen empresa" className="w-25 rounded-full" />
+      
+    </div>
+  )
+
+}
+
 
 function ListItem({
   title,

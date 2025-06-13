@@ -10,10 +10,10 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1c0093] text-gray-300 py-12 px-6">
+    <footer className="bg-[#0d1023] text-gray-300 py-12 px-6 rounded-4xl">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
         <div>
-          <h3 className="text-white font-semibold mb-4 text-lg">Empresa</h3>
+          <h3 className="text-amber-300 font-semibold mb-4 text-lg">Empresa</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <RouterLink to="/" className="hover:text-white transition-colors">
@@ -33,7 +33,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-4 text-lg">Servicios</h3>
+          <h3 className="text-amber-300 font-semibold mb-4 text-lg">Servicios</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <RouterLink to="/servicios" className="hover:text-white transition-colors">
@@ -68,7 +68,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-4 text-lg">Tecnologías</h3>
+          <h3 className="text-amber-300 font-semibold mb-4 text-lg">Tecnologías</h3>
           <ul className="space-y-2 text-sm">
             <li>JavaScript, Python, TypeScript</li>
             <li>React, Vue </li>
@@ -76,7 +76,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-4 text-lg">Clientes y Alianzas</h3>
+          <h3 className="text-amber-300 font-semibold mb-4 text-lg">Clientes y Alianzas</h3>
           <ul className="space-y-2 text-sm">
             <li>Clientes Destacados</li>
             <li>Testimonios</li>
@@ -84,7 +84,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-4 text-lg">Blog</h3>
+          <h3 className="text-amber-300 font-semibold mb-4 text-lg">Blog</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <RouterLink to="/blog" className="hover:text-white transition-colors">
@@ -99,14 +99,14 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-4 text-lg">Síguenos</h3>
+          <h3 className="text-amber-300 font-semibold mb-4 text-lg">Síguenos</h3>
           <div className="flex space-x-4">
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="hover:text-white transition-colors"
+              className="hover:text-amber-300 transition-colors"
             >
               <IconBrandFacebook size={24} aria-hidden="true" />
             </a>
@@ -115,7 +115,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
-              className="hover:text-white transition-colors"
+              className="hover:text-amber-300 transition-colors"
             >
               <IconBrandTwitter size={24} aria-hidden="true" />
             </a>
@@ -124,7 +124,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="hover:text-white transition-colors"
+              className="hover:text-amber-300 transition-colors"
             >
               <IconBrandLinkedin size={24} aria-hidden="true" />
             </a>
@@ -133,14 +133,14 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="hover:text-white transition-colors"
+              className="hover:text-amber-300 transition-colors"
             >
               <IconBrandInstagram size={24} aria-hidden="true" />
             </a>
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-800 mt-12 pt-6 text-center text-xs text-gray-500">
+      <div className="border-t border-gray-800 mt-12 pt-6 text-center text-xs text-amber-300">
         &copy; {new Date().getFullYear()} Synaptek Solutions. Todos los derechos reservados.
       </div>
     </footer>
