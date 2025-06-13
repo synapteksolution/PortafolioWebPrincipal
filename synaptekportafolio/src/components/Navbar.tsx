@@ -13,7 +13,10 @@ import {
 
 export function NavigationMenuDemo() {
   return (
-    <NavigationMenu viewport={false}>
+
+
+    <div className="flex justify-center">
+      <NavigationMenu viewport={false}>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Inicio</NavigationMenuTrigger>
@@ -41,6 +44,7 @@ export function NavigationMenuDemo() {
             </ListItem>
           </NavigationMenuContent>
         </NavigationMenuItem>
+         <ImagenEmpresa/>
 
         <NavigationMenuItem>
           <NavigationMenuTrigger>Portafolio</NavigationMenuTrigger>
@@ -50,7 +54,7 @@ export function NavigationMenuDemo() {
             </ListItem>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <ImagenEmpresa/>
+       
 
         <NavigationMenuItem>
           <NavigationMenuTrigger>Tecnologías</NavigationMenuTrigger>
@@ -61,15 +65,15 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger>Clientes y Alianzas</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ListItem href="/clientes" title="Clientes y Alianzas">
               Logos y testimonios de clientes.
             </ListItem>
           </NavigationMenuContent>
-        </NavigationMenuItem>
-
+        </NavigationMenuItem> */}
+{/* 
         <NavigationMenuItem>
           <NavigationMenuTrigger>Blog</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -77,7 +81,7 @@ export function NavigationMenuDemo() {
               Artículos de interés y noticias.
             </ListItem>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
 
         <NavigationMenuItem>
           <NavigationMenuTrigger>Contacto</NavigationMenuTrigger>
@@ -90,6 +94,9 @@ export function NavigationMenuDemo() {
       </NavigationMenuList>
       
     </NavigationMenu>
+
+    </div>
+    
   )
 }
 
