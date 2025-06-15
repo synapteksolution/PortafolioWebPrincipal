@@ -63,9 +63,12 @@ export default function Portafolio() {
   return (
 
 
-    <div className="py-20 px-6">
-      <section id="portafolio" className="py-20 px-6 rounded-4xl">
-      <h2 className="text-3xl font-bold text-center mb-12 text-amber-300 text-shadow-amber-200">Portafolio de Proyectos</h2>
+    <div className="py-20 px-6 ">
+      <section id="portafolio" className="py-20 px-6 rounded-4xl border-4 border-transparent 
+   border-l-purple-200 
+  border-r-purple-200 border-b-blue-200 border-t-blue-200
+   p-6 ">
+      <h2 className="text-3xl font-bold text-center mb-12 text-amber-300  ">Portafolio de Proyectos</h2>
 
       <div className="space-y-16 max-w-6xl mx-auto">
         {categorias.map((categoria, i) => (
