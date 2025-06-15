@@ -7,7 +7,7 @@ import SobreNosotros from './pages/AboutUs';
 import Servicios from './pages/Servicios';
 import Home from './pages/Home';
 import Portafolio from './pages/Portafolio';
-import Tecnologia from './pages/Tecnologia';
+import Tecnologias from './pages/Tecnologias';
 import Clientes from './pages/Clientes';
 import Blog from './pages/Blog';
 import Contacto from './pages/Contacto';
@@ -21,7 +21,7 @@ function App() {
         <Route path="/sobre-nosotros" element={<SobreNosotros />} />
         <Route path="/servicios" element={<Servicios />} />
         <Route path="/portafolio" element={<Portafolio />} />
-        <Route path="/tecnologias" element={<Tecnologia />} />
+        <Route path="/tecnologias" element={<Tecnologias />} />
         <Route path="/clientes" element={<Clientes />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contacto" element={<Contacto />} />

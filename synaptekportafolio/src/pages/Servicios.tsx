@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './Servicios.module.css';
 import {DiAndroid, DiChrome, DiFirefox, DiOpera, DiApple } from 'react-icons/di';
 import {FaComments, FaDesktop, FaPuzzlePiece, FaHammer } from 'react-icons/fa';
