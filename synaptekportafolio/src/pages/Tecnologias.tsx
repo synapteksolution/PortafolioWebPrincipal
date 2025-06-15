@@ -24,8 +24,8 @@ export default function Tecnologias() {
   return (
 
     <div className="py-20 px-6">
-      <section id="tecnologias" className="py-20 px-6 bg-black rounded-full">
-      <h2 className="text-3xl font-bold text-center mb-12 text-amber-200">Tecnologías que utilizamos</h2>
+      <section id="tecnologias" className="py-20 px-6 bg-[#1f0f46] rounded-full border-4 border-purple-900">
+      <h2 className="text-3xl font-bold text-center mb-12 text-amber-200">Tecnologías </h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
         {tecnologias.map((tec, index) => (
           <Card key={index} className="flex flex-col items-center justify-center p-6 hover:shadow-md transition-shadow rounded-full">
