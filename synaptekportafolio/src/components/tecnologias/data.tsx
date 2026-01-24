@@ -1,0 +1,187 @@
+// src/components/skills/data.tsx
+import type { Skill } from "./types"
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiNestjs,
+  SiPython,
+  SiPostgresql,
+  SiDocker,
+} from "react-icons/si"
+import {
+  Bot,
+  BrainCircuit,
+  BarChart3,
+  Database,
+  Laptop,
+  AppWindow,
+  Workflow,
+} from "lucide-react"
+
+export const skills: Skill[] = [
+  // Desarrollo Web
+  {
+    id: "web-react",
+    nombre: "React + TypeScript",
+    icono: <SiReact className="text-cyan-300" size={30} />,
+    area: "Desarrollo Web",
+    nivel: 5,
+    core: true,
+    propuesta: "Construcción de interfaces modernas, reutilizables y escalables.",
+    tags: ["UI", "Hooks", "Componentes", "TypeScript"],
+  },
+  {
+    id: "web-next",
+    nombre: "Next.js",
+    icono: <SiNextdotjs className="text-slate-100" size={30} />,
+    area: "Desarrollo Web",
+    nivel: 4,
+    core: true,
+    propuesta: "Aplicaciones web optimizadas para rendimiento, SEO y despliegue.",
+    tags: ["SSR", "Routes", "Deploy"],
+  },
+  {
+    id: "web-tailwind",
+    nombre: "TailwindCSS",
+    icono: <SiTailwindcss className="text-cyan-300" size={30} />,
+    area: "Desarrollo Web",
+    nivel: 4,
+    propuesta: "Diseño consistente, rápido y con estética tecnológica.",
+    tags: ["Design System", "Responsive", "UI"],
+  },
+  {
+    id: "web-backend",
+    nombre: "APIs (Node/Nest)",
+    icono: <SiNestjs className="text-rose-300" size={30} />,
+    area: "Desarrollo Web",
+    nivel: 4,
+    core: true,
+    propuesta: "Backends modulares, APIs limpias y lógica de negocio mantenible.",
+    tags: ["REST", "DTOs", "Arquitectura", "Auth"],
+  },
+
+  // Data Scientist
+  {
+    id: "ds-python",
+    nombre: "Python (Data)",
+    icono: <SiPython className="text-amber-300" size={30} />,
+    area: "Data Scientist",
+    nivel: 4,
+    core: true,
+    propuesta: "Análisis de datos, preparación de datasets y modelos predictivos.",
+    tags: ["EDA", "Modelado", "Métricas"],
+  },
+  {
+    id: "ds-sql",
+    nombre: "SQL + Modelado",
+    icono: <Database className="text-amber-200" size={30} />,
+    area: "Data Scientist",
+    nivel: 4,
+    core: true,
+    propuesta: "Extracción, transformación y análisis para decisiones basadas en datos.",
+    tags: ["Consultas", "KPIs", "ETL"],
+  },
+  {
+    id: "ds-postgres",
+    nombre: "PostgreSQL",
+    icono: <SiPostgresql className="text-sky-300" size={30} />,
+    area: "Data Scientist",
+    nivel: 4,
+    propuesta: "Diseño de datos y consultas analíticas para reportes.",
+    tags: ["Reporting", "Performance", "Relacional"],
+  },
+  {
+    id: "ds-dashboards",
+    nombre: "Dashboards & Storytelling",
+    icono: <BarChart3 className="text-amber-200" size={30} />,
+    area: "Data Scientist",
+    nivel: 3,
+    propuesta: "Comunicación clara de resultados y hallazgos.",
+    tags: ["Visualización", "Insight", "Negocio"],
+  },
+
+  // Inteligencia Artificial
+  {
+    id: "ai-genia",
+    nombre: "GenIA aplicada",
+    icono: <BrainCircuit className="text-fuchsia-200" size={30} />,
+    area: "Inteligencia Artificial",
+    nivel: 3,
+    core: true,
+    propuesta: "Integración de capacidades de IA en productos: resumen, clasificación, asistencia.",
+    tags: ["Prompts", "RAG", "Automatización"],
+  },
+  {
+    id: "ai-pipelines",
+    nombre: "Pipelines para IA",
+    icono: <Workflow className="text-fuchsia-200" size={30} />,
+    area: "Inteligencia Artificial",
+    nivel: 3,
+    propuesta: "Flujos para mover datos y ejecutar tareas inteligentes de forma confiable.",
+    tags: ["ETL", "Orquestación", "Integraciones"],
+  },
+
+  // Chatbots
+  {
+    id: "bot-design",
+    nombre: "Chatbots (Diseño)",
+    icono: <Bot className="text-sky-200" size={30} />,
+    area: "Chatbots",
+    nivel: 3,
+    core: true,
+    propuesta: "Conversaciones enfocadas en usuario, intención y resolución de tareas.",
+    tags: ["Intents", "Flujos", "UX Conversacional"],
+  },
+  {
+    id: "bot-integration",
+    nombre: "Chatbots (Integración)",
+    icono: <SiNodedotjs className="text-emerald-300" size={30} />,
+    area: "Chatbots",
+    nivel: 3,
+    propuesta: "Conexión del bot con APIs, bases de datos y sistemas externos.",
+    tags: ["APIs", "Auth", "Webhooks"],
+  },
+
+  // Desarrollo de escritorio (sin casarte con una tech específica)
+  {
+    id: "desktop-apps",
+    nombre: "Apps de escritorio",
+    icono: <AppWindow className="text-violet-200" size={30} />,
+    area: "Desarrollo de Escritorio",
+    nivel: 2,
+    propuesta: "Soluciones locales orientadas a productividad y control de procesos.",
+    tags: ["UI", "Procesos", "Productividad"],
+  },
+  {
+    id: "desktop-tools",
+    nombre: "Herramientas locales",
+    icono: <Laptop className="text-violet-200" size={30} />,
+    area: "Desarrollo de Escritorio",
+    nivel: 2,
+    propuesta: "Herramientas internas para análisis, automatización y soporte operativo.",
+    tags: ["Scripts", "Integración", "Soporte"],
+  },
+
+  // Extra “tech credibility” sin salirte del enfoque
+  {
+    id: "infra-docker",
+    nombre: "Docker (Deploy)",
+    icono: <SiDocker className="text-sky-300" size={30} />,
+    area: "Desarrollo Web",
+    nivel: 3,
+    propuesta: "Estandarización de entornos para despliegues repetibles.",
+    tags: ["Contenedores", "Deploy", "Entornos"],
+  },
+  {
+    id: "lang-ts",
+    nombre: "TypeScript",
+    icono: <SiTypescript className="text-sky-300" size={30} />,
+    area: "Desarrollo Web",
+    nivel: 4,
+    propuesta: "Código más robusto, mantenible y escalable en frontend/backend.",
+    tags: ["Tipado", "Calidad", "Refactor"],
+  },
+]
