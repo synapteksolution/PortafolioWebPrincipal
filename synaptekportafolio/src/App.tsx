@@ -1,5 +1,5 @@
 import './styles/App.css'
-import { NavigationMenuDemo } from './components/Navbar'
+import  Navbar from './components/Navbar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Footer from './components/Footer';
@@ -15,7 +15,7 @@ import Contacto from './pages/Contacto';
 function App() {
   return (
     <Router>
-      <NavigationMenuDemo />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sobre-nosotros" element={<SobreNosotros />} />

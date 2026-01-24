@@ -13,8 +13,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import {
-  BarChart3,
-  Bot,
+
   Briefcase,
   Code2,
   Home,
