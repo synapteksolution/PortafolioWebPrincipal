@@ -1,51 +1,26 @@
-// src/components/skills/meta.ts
-import type { SkillArea } from "./types"
-
-export const areasOrden: SkillArea[] = [
-  "Desarrollo Web",
-  "Data Scientist",
-  "Inteligencia Artificial",
-  "Chatbots",
-  "Desarrollo de Escritorio",
-]
-
-export const areaMeta: Record<
-  SkillArea,
-  { label: string; badge: string; ring: string; glow: string }
-> = {
-  "Desarrollo Web": {
-    label: "Desarrollo Web",
-    badge: "bg-cyan-500/10 text-cyan-200 border-cyan-500/25",
-    ring: "ring-cyan-500/20",
-    glow:
-      "hover:shadow-[0_0_0_1px_rgba(34,211,238,.25),0_0_44px_rgba(34,211,238,.12)]",
-  },
-  "Data Scientist": {
-    label: "Data Scientist",
-    badge: "bg-amber-500/10 text-amber-200 border-amber-500/25",
-    ring: "ring-amber-500/20",
-    glow:
-      "hover:shadow-[0_0_0_1px_rgba(245,158,11,.25),0_0_44px_rgba(245,158,11,.12)]",
-  },
-  "Inteligencia Artificial": {
-    label: "Inteligencia Artificial",
-    badge: "bg-fuchsia-500/10 text-fuchsia-200 border-fuchsia-500/25",
-    ring: "ring-fuchsia-500/20",
-    glow:
-      "hover:shadow-[0_0_0_1px_rgba(217,70,239,.25),0_0_44px_rgba(217,70,239,.12)]",
-  },
-  Chatbots: {
-    label: "Chatbots",
-    badge: "bg-sky-500/10 text-sky-200 border-sky-500/25",
-    ring: "ring-sky-500/20",
-    glow:
-      "hover:shadow-[0_0_0_1px_rgba(56,189,248,.25),0_0_44px_rgba(56,189,248,.12)]",
-  },
-  "Desarrollo de Escritorio": {
-    label: "Desarrollo de Escritorio",
-    badge: "bg-violet-500/10 text-violet-200 border-violet-500/25",
-    ring: "ring-violet-500/20",
-    glow:
-      "hover:shadow-[0_0_0_1px_rgba(168,85,247,.25),0_0_44px_rgba(168,85,247,.12)]",
-  },
+export const areaMeta: Record<string, { glow: string; ring: string; badge: string; label: string }> = {
+    frontend: {
+        glow: "group-hover:shadow-[0_0_30px_-10px_rgba(34,211,238,0.3)]",
+        ring: "group-hover:ring-cyan-500/50",
+        badge: "bg-cyan-500/10 text-cyan-200 border-cyan-500/25",
+        label: "Frontend",
+    },
+    backend: {
+        glow: "group-hover:shadow-[0_0_30px_-10px_rgba(16,185,129,0.3)]",
+        ring: "group-hover:ring-emerald-500/50",
+        badge: "bg-emerald-500/10 text-emerald-200 border-emerald-500/25",
+        label: "Backend",
+    },
+    workflow: {
+        glow: "group-hover:shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]",
+        ring: "group-hover:ring-purple-500/50",
+        badge: "bg-purple-500/10 text-purple-200 border-purple-500/25",
+        label: "Automatización",
+    },
+    diseño: {
+        glow: "group-hover:shadow-[0_0_30px_-10px_rgba(244,63,94,0.3)]",
+        ring: "group-hover:ring-rose-500/50",
+        badge: "bg-rose-500/10 text-rose-200 border-rose-500/25",
+        label: "Diseño",
+    },
 }

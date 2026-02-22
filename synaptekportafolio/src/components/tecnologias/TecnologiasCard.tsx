@@ -1,7 +1,7 @@
-// src/components/skills/SkillCard.tsx
+// src/components/tecnologias/TecnologiasCard.tsx
 import { Card, CardContent } from "@/components/ui/card"
-import type { Skill } from "./types"
-import { areaMeta } from "./meta"
+import type { Skill } from "@/components/tecnologias/types"
+import { areaMeta } from "@/components/tecnologias/meta"
 import { nivelLabel, nivelPct } from "@/components/tecnologias/utils"
 
 export default function TecnologiasCard({ skill }: { skill: Skill }) {

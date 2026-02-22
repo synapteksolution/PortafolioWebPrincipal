@@ -1,17 +1,19 @@
 // src/components/Servicios.tsx
 import { useMemo, useState } from "react"
 import {
-  DiChrome,
-  DiFirefox,
-  DiOpera,
-} from "react-icons/di"
-import { FaPuzzlePiece, FaDesktop, FaHammer, FaComments } from "react-icons/fa"
-import { LuChartBar } from "react-icons/lu"
-import { GiRobotAntennas } from "react-icons/gi"
-import { Sparkles, Filter, Rocket, CheckCircle2 } from "lucide-react"
+  Chrome,
+  Globe,
+  Puzzle,
+  Monitor,
+  Hammer,
+  Sparkles,
+  Filter,
+  Rocket,
+  CheckCircle2,
+} from "lucide-react"
 
 type Nivel = "Starter"
-type Area = "Desarrollo Web" | "Data Scientist" | "IA/Chatbots" | "Integraciones" | "Software"
+type Area = "Desarrollo Web" | "Aplicativos Web" | "Automatizaciones" | "Software"
 
 type Servicio = {
   id: string
@@ -27,18 +29,16 @@ type Servicio = {
 const AREAS: Array<Area | "Todos"> = [
   "Todos",
   "Desarrollo Web",
+  "Aplicativos Web",
+  "Automatizaciones",
   "Software",
-  "Integraciones",
-  "Data Scientist",
-  "IA/Chatbots",
 ]
 
 const badgeByArea: Record<Area, string> = {
   "Desarrollo Web": "bg-cyan-500/10 text-cyan-200 border-cyan-500/25",
-  Software: "bg-violet-500/10 text-violet-200 border-violet-500/25",
-  Integraciones: "bg-sky-500/10 text-sky-200 border-sky-500/25",
-  "Data Scientist": "bg-amber-500/10 text-amber-200 border-amber-500/25",
-  "IA/Chatbots": "bg-fuchsia-500/10 text-fuchsia-200 border-fuchsia-500/25",
+  "Aplicativos Web": "bg-violet-500/10 text-violet-200 border-violet-500/25",
+  Automatizaciones: "bg-emerald-500/10 text-emerald-200 border-emerald-500/25",
+  Software: "bg-sky-500/10 text-sky-200 border-sky-500/25",
 }
 
 function Chip({
@@ -55,9 +55,9 @@ function Chip({
       type="button"
       onClick={onClick}
       className={[
-        "px-3 py-1.5 rounded-full text-xs font-semibold border transition",
-        "bg-white/5 border-white/10 text-slate-100 hover:bg-white/10",
-        active ? "bg-white/10 border-white/25 ring-1 ring-white/20" : "",
+        "px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-300",
+        "bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:border-white/20",
+        active ? "bg-white/20 border-cyan-400/50 text-white ring-1 ring-cyan-400/30 shadow-[0_0_15px_rgba(34,211,238,0.2)]" : "",
       ].join(" ")}
     >
       {children}
@@ -70,29 +70,30 @@ function CardServicio({ s }: { s: Servicio }) {
     <div
       className={[
         "group relative overflow-hidden rounded-2xl border border-white/10",
-        "bg-gradient-to-b from-white/[0.07] to-white/[0.03]",
-        "transition-all",
-        "hover:shadow-[0_0_0_1px_rgba(255,255,255,.10),0_0_44px_rgba(34,211,238,.10)]",
+        "bg-gradient-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-sm",
+        "transition-all duration-500",
+        "hover:shadow-[0_0_0_1px_rgba(255,255,255,.10),0_0_50px_rgba(34,211,238,.15)]",
+        "hover:-translate-y-1",
       ].join(" ")}
     >
       {/* glow */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-[radial-gradient(1100px_circle_at_20%_0%,rgba(168,85,247,.14),transparent_45%),radial-gradient(900px_circle_at_80%_100%,rgba(34,211,238,.10),transparent_45%)]" />
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(800px_circle_at_20%_0%,rgba(168,85,247,.12),transparent_40%),radial-gradient(600px_circle_at_80%_100%,rgba(34,211,238,.08),transparent_40%)]" />
 
-      <div className="relative p-6">
+      <div className="relative p-7">
         {/* top row */}
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div className="grid place-items-center size-12 rounded-2xl border border-white/10 bg-white/5">
-              <div className="flex items-center gap-1 text-2xl text-slate-100">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <div className="grid place-items-center size-14 rounded-2xl border border-white/10 bg-white/5 shadow-inner">
+              <div className="flex items-center gap-1.5 text-3xl text-slate-100">
                 {s.iconos}
               </div>
             </div>
 
             <div className="min-w-0">
-              <h3 className="text-base font-extrabold tracking-tight text-slate-100">
+              <h3 className="text-lg font-bold tracking-tight text-white leading-tight">
                 {s.titulo}
               </h3>
-              <p className="mt-1 text-xs text-slate-300">
+              <p className="mt-1.5 text-xs text-slate-400 leading-relaxed max-w-[200px]">
                 {s.descripcion}
               </p>
             </div>
@@ -101,68 +102,61 @@ function CardServicio({ s }: { s: Servicio }) {
           <div className="flex flex-col items-end gap-2 shrink-0">
             <span
               className={[
-                "text-[10px] px-2 py-0.5 rounded-full border",
+                "text-[11px] px-2.5 py-0.5 rounded-full border font-bold tracking-wider uppercase",
                 badgeByArea[s.area],
               ].join(" ")}
             >
               {s.area}
             </span>
-            <span className="text-[10px] px-2 py-0.5 rounded-full border bg-emerald-500/10 text-emerald-200 border-emerald-500/25">
-              {s.nivel}
-            </span>
           </div>
         </div>
 
-        {/* entregables */}
-        <div className="mt-4">
-          <div className="text-[11px] font-bold text-slate-200 mb-2 flex items-center gap-2">
-            <CheckCircle2 size={14} className="text-slate-200" />
-            Entregables
+        {/* content grid */}
+        <div className="mt-6 space-y-6">
+          <div>
+            <div className="text-[11px] font-bold text-slate-400 mb-3 flex items-center gap-2 uppercase tracking-widest">
+              <CheckCircle2 size={13} className="text-cyan-400" />
+              Entregables
+            </div>
+
+            <ul className="grid grid-cols-1 gap-2 text-sm text-slate-300">
+              {s.entregables.map((e) => (
+                <li key={e} className="flex items-start gap-2.5">
+                  <span className="mt-1.5 size-1.5 rounded-full bg-cyan-400/40" />
+                  <span className="leading-tight">{e}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <ul className="space-y-1.5 text-sm text-slate-300">
-            {s.entregables.map((e) => (
-              <li key={e} className="flex items-start gap-2">
-                <span className="mt-1.5 size-1.5 rounded-full bg-white/30" />
-                <span>{e}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* recomendado para */}
-        <div className="mt-4">
-          <div className="text-[11px] font-bold text-slate-200 mb-1 flex items-center gap-2">
-            <Sparkles size={14} className="text-slate-200" />
-            Recomendado para
+          <div className="pt-4 border-t border-white/5">
+            <div className="text-[11px] font-bold text-slate-400 mb-2 flex items-center gap-2 uppercase tracking-widest">
+              <Sparkles size={13} className="text-amber-400 shadow-sm" />
+              Ideal para
+            </div>
+            <p className="text-sm text-slate-300 italic leading-relaxed">
+              "{s.recomendadoPara}"
+            </p>
           </div>
-          <p className="text-sm text-slate-300">
-            {s.recomendadoPara}
-          </p>
         </div>
 
         {/* ctas */}
-        <div className="mt-5 flex flex-wrap gap-2">
+        <div className="mt-8 flex flex-col sm:flex-row gap-3">
           <a
             href="#contacto"
-            className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-bold
-                       bg-white text-slate-900 hover:bg-white/90 transition"
+            className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold
+                       bg-white text-slate-900 hover:bg-cyan-50 transition-all duration-300 shadow-lg shadow-white/5"
           >
             <Rocket size={16} />
-            Solicitar propuesta
+            Solicitar
           </a>
           <a
             href="#proyectos"
-            className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-bold
-                       border border-white/15 bg-white/5 text-slate-100 hover:bg-white/10 transition"
+            className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold
+                       border border-white/10 bg-white/5 text-slate-100 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
           >
-            Ver proyectos
+            Portafolio
           </a>
-        </div>
-
-        {/* nota sutil para “recién egresado” */}
-        <div className="mt-4 text-[11px] text-slate-400">
-          Entregas claras, alcance definido y comunicación directa.
         </div>
       </div>
     </div>
@@ -175,81 +169,59 @@ export default function Servicios() {
   const servicios: Servicio[] = useMemo(
     () => [
       {
-        id: "web-mvp",
-        titulo: "Desarrollo Web (MVP / Landing / Fullstack básico)",
+        id: "landing-pages",
+        titulo: "Landing Pages (Alto Impacto)",
         descripcion:
-          "Primera versión lista para mostrar y vender: landing + formulario + panel simple si aplica.",
+          "Convertimos visitantes en clientes con diseños rápidos, modernos y optimizados para móviles.",
         area: "Desarrollo Web",
         nivel: "Starter",
-        iconos: (
-          <>
-            <DiChrome />
-            <DiFirefox />
-            <DiOpera />
-          </>
-        ),
-        entregables: ["Landing/MVP", "API básica (si aplica)", "Deploy y documentación mínima"],
-        recomendadoPara: "Emprendimientos y pymes que necesitan salir rápido con una solución funcional.",
+        iconos: <Chrome size={22} />,
+        entregables: ["Diseño Responsive", "CTA Optimizado", "Carga en < 2s", "Formulario de Leads"],
+        recomendadoPara: "Lanzamiento de productos, campañas de marketing y captación rápida de clientes.",
       },
       {
-        id: "software-medida",
-        titulo: "Software a medida (web o escritorio ligero)",
+        id: "web-pages",
+        titulo: "Páginas Web Corporativas",
         descripcion:
-          "Herramientas pequeñas y claras: control de procesos, módulos internos, formularios y reportes.",
+          "Presencia digital sólida y profesional para tu negocio. Escalable y autogestionable.",
+        area: "Desarrollo Web",
+        nivel: "Starter",
+        iconos: <Globe size={22} />,
+        entregables: ["Multi-sección", "SEO Básico", "Panel Administrativo", "Blog / Noticias"],
+        recomendadoPara: "Empresas que buscan credibilidad y centralizar su información en un solo lugar.",
+      },
+      {
+        id: "web-apps",
+        titulo: "Aplicativos Web (SaaS / MVP)",
+        descripcion:
+          "Soluciones complejas con lógica de negocio personalizada, bases de datos y usuarios.",
+        area: "Aplicativos Web",
+        nivel: "Starter",
+        iconos: <Monitor size={22} />,
+        entregables: ["Autenticación", "Dashboard de Usuario", "Base de Datos", "API RESTful"],
+        recomendadoPara: "Nuevas ideas de negocio (SaaS) o herramientas internas para procesos específicos.",
+      },
+      {
+        id: "n8n-automations",
+        titulo: "Automatizaciones con n8n",
+        descripcion:
+          "Conectamos tus herramientas favoritas y automatizamos tareas repetitivas sin errores.",
+        area: "Automatizaciones",
+        nivel: "Starter",
+        iconos: <Puzzle size={22} />,
+        entregables: ["Workflows en n8n", "Integración con APIs", "Webhooks", "Notificaciones"],
+        recomendadoPara: "Negocios que quieren ahorrar horas de trabajo manual conectando su CRM, email y RRSS.",
+      },
+      {
+        id: "software-herramientas",
+        titulo: "Herramientas de Software",
+        descripcion:
+          "Scripts y utilidades a medida para resolver problemas técnicos o de datos recurrentes.",
         area: "Software",
         nivel: "Starter",
-        iconos: <FaHammer />,
-        entregables: ["Funcionalidades acordadas", "Persistencia de datos", "Manual de uso breve"],
-        recomendadoPara: "Negocios que hoy lo gestionan en Excel y quieren una herramienta propia.",
-      },
-      {
-        id: "integraciones",
-        titulo: "Integraciones (APIs / Webhooks)",
-        descripcion:
-          "Conecto tu app con servicios externos: APIs, autenticación, envío de datos y automatizaciones.",
-        area: "Integraciones",
-        nivel: "Starter",
-        iconos: <FaPuzzlePiece />,
-        entregables: ["Integración documentada", "Pruebas básicas", "Manejo de errores y logs"],
-        recomendadoPara: "Productos que requieren conectar formularios, CRM, pagos o servicios externos.",
-      },
-      {
-        id: "ds-dashboards",
-        titulo: "Data Scientist (Análisis + Dashboards)",
-        descripcion:
-          "Organizo datos, defino KPIs y creo dashboards para decisiones basadas en información.",
-        area: "Data Scientist",
-        nivel: "Starter",
-        iconos: <LuChartBar />,
-        entregables: ["KPIs + diccionario", "Consultas y limpieza básica", "Dashboard y guía de lectura"],
-        recomendadoPara: "Equipos que necesitan visibilidad: ventas, costos, operaciones y seguimiento.",
-      },
-      {
-        id: "chatbots",
-        titulo: "Chatbots (GenIA + flujos de atención)",
-        descripcion:
-          "Bots para FAQs, captación de leads y automatización de tareas, conectados a tu información.",
-        area: "IA/Chatbots",
-        nivel: "Starter",
-        iconos: (
-          <>
-            <GiRobotAntennas />
-            <FaComments />
-          </>
-        ),
-        entregables: ["Flujos e intenciones", "Conexión a FAQs/fuentes", "Pruebas y mejora inicial"],
-        recomendadoPara: "Negocios que buscan responder más rápido y reducir tareas repetitivas.",
-      },
-      {
-        id: "acompanamiento",
-        titulo: "Acompañamiento técnico (roadmap y arquitectura)",
-        descripcion:
-          "Aterrizo el alcance del producto: stack, módulos, tiempos y próximos pasos realistas.",
-        area: "Desarrollo Web",
-        nivel: "Starter",
-        iconos: <FaDesktop />,
-        entregables: ["Roadmap", "Recomendaciones técnicas", "Plan de implementación"],
-        recomendadoPara: "Equipos que necesitan claridad antes de construir o escalar su solución.",
+        iconos: <Hammer size={22} />,
+        entregables: ["Script Ejecutable", "Documentación Técnica", "Fácil Integración"],
+        recomendadoPara: "Resolución de tareas técnicas específicas o procesamiento de archivos masivos.",
       },
     ],
     [],
@@ -257,58 +229,62 @@ export default function Servicios() {
 
   const serviciosFiltrados = useMemo(() => {
     if (filtro === "Todos") return servicios
-    return servicios.filter((s) => s.area === filtro)
+    return servicios.filter((s: Servicio) => s.area === filtro)
   }, [filtro, servicios])
+
 
   return (
     <section
       id="servicios"
       className={[
-        "py-20 px-6 rounded-3xl border border-white/10",
-        "bg-[radial-gradient(1200px_circle_at_20%_0%,rgba(168,85,247,.22),transparent_45%),radial-gradient(900px_circle_at_80%_100%,rgba(34,211,238,.16),transparent_45%),linear-gradient(180deg,rgba(2,6,23,.92),rgba(15,23,42,.78))]",
+        "py-16 px-6 sm:px-10 lg:px-16 rounded-[40px] border border-white/10 overflow-hidden",
+        "bg-[radial-gradient(1500px_circle_at_0%_0%,rgba(168,85,247,.15),transparent_50%),radial-gradient(1000px_circle_at_100%_100%,rgba(34,211,238,.12),transparent_50%),linear-gradient(180deg,rgba(2,6,23,0.95),rgba(15,23,42,0.85))]",
+        "backdrop-blur-xl relative",
       ].join(" ")}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="absolute top-0 right-0 w-1/3 h-full opacity-20 pointer-events-none">
+        <img
+          src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
+          alt="Office"
+          className="w-full h-full object-cover mix-blend-overlay grayscale"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* header */}
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-200 text-xs">
-              <Filter size={14} className="text-slate-200" />
-              Servicios (perfil Starter)
+        <div className="flex flex-col lg:flex-row gap-10 items-start lg:items-center justify-between mb-16">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-cyan-300 text-xs font-bold tracking-widest uppercase mb-6">
+              <Filter size={14} />
+              Soluciones Digitales
             </div>
 
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-100">
-              Servicios
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white mb-6 leading-[1.1]">
+              Servicios que impulsan <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-400">tu negocio</span>
             </h2>
 
-            <p className="mt-2 text-slate-300 max-w-xl">
-              Como recien egresado, ofrezco entregas claras y alcance definido. Mi enfoque es construir
-              productos funcionales (web/software) y sumar valor con datos e IA cuando aplica.
+            <p className="text-lg text-slate-400 leading-relaxed font-medium">
+              Especializado en transformar ideas en productos digitales reales.
+              Enfoque en velocidad, calidad y automatización para optimizar tus procesos.
             </p>
           </div>
 
           {/* mini métricas */}
-          <div className="grid grid-cols-3 gap-3">
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <div className="text-[10px] text-slate-300">Servicios</div>
-              <div className="text-lg font-extrabold text-slate-100">{servicios.length}</div>
+          <div className="flex flex-wrap gap-4 w-full lg:w-auto">
+            <div className="flex-1 lg:flex-none min-w-[120px] rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md text-center">
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Total</div>
+              <div className="text-3xl font-black text-white">{servicios.length}</div>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <div className="text-[10px] text-slate-300">Core</div>
-              <div className="text-lg font-extrabold text-emerald-200">
-                {servicios.filter((s) => ["Desarrollo Web", "Software"].includes(s.area)).length}
-              </div>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <div className="text-[10px] text-slate-300">Filtros</div>
-              <div className="text-lg font-extrabold text-slate-100">{AREAS.length - 1}</div>
+            <div className="flex-2 lg:flex-none min-w-[160px] rounded-3xl border border-cyan-500/20 bg-cyan-500/5 p-6 backdrop-blur-md text-center">
+              <div className="text-[10px] font-bold text-cyan-500/60 uppercase tracking-widest mb-1">Enfoque</div>
+              <div className="text-2xl font-black text-cyan-300 uppercase tracking-tighter">Resultados</div>
             </div>
           </div>
         </div>
 
         {/* filtros */}
-        <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-wrap gap-2">
+        <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between mb-12 py-6 border-y border-white/5">
+          <div className="flex flex-wrap gap-3">
             {AREAS.map((a) => (
               <Chip key={a} active={filtro === a} onClick={() => setFiltro(a)}>
                 {a}
@@ -316,24 +292,46 @@ export default function Servicios() {
             ))}
           </div>
 
-          <div className="text-slate-300 text-xs">
-            Mostrando <span className="text-slate-100 font-bold">{serviciosFiltrados.length}</span> servicios
+          <div className="text-slate-400 text-sm font-medium">
+            Mostrando <span className="text-white font-black">{serviciosFiltrados.length}</span> servicios especializados
           </div>
         </div>
 
         {/* grid */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviciosFiltrados.map((s) => (
             <CardServicio key={s.id} s={s} />
           ))}
         </div>
 
-        {/* footer / note */}
-        <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-slate-300">
-          <p>
-            Nota: cada servicio se trabaja con alcance definido (MVP). Si necesitas algo más grande,
-            se planifica por fases para mantener tiempos y calidad.
-          </p>
+        {/* trust section / image */}
+        <div className="mt-20 rounded-[32px] overflow-hidden border border-white/10 bg-gradient-to-r from-white/5 to-transparent relative group">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
+            <div className="p-10 lg:p-14">
+              <div className="inline-flex items-center gap-2 text-cyan-400 font-bold text-sm mb-4">
+                <Sparkles size={16} />
+                Confianza y Calidad
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">Metodología de trabajo enfocada en valor</h3>
+              <p className="text-slate-400 mb-8 leading-relaxed">
+                Cada proyecto se gestiona con hitos claros, comunicación constante y un enfoque obsesivo en la experiencia final del usuario. No solo construimos código, construimos soluciones.
+              </p>
+              <a
+                href="#contacto"
+                className="inline-flex items-center gap-2 text-white font-bold hover:text-cyan-400 transition-colors"
+              >
+                Saber más sobre el proceso <Rocket size={16} />
+              </a>
+            </div>
+            <div className="h-64 lg:h-full min-h-[300px] relative">
+              <img
+                src="https://images.unsplash.com/photo-1522071823991-b515d267320d?q=80&w=2070&auto=format&fit=crop"
+                alt="Collaboration"
+                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-transparent to-transparent lg:hidden" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -2,9 +2,8 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import {
-  BarChart3,
+  Monitor,
   Bot,
-  BrainCircuit,
   Code2,
   Rocket,
   Sparkles,
@@ -15,53 +14,46 @@ import {
 const servicios = [
   {
     icon: <Code2 size={18} className="text-cyan-200" />,
-    title: "Desarrollo Web (MVP y producto)",
-    desc: "Landing, panel, APIs y base de datos. Ideal para lanzar y validar rápido.",
-    bullets: ["React / Next", "Node / Nest", "Deploy y documentación mínima"],
+    title: "Landing Pages & Productos",
+    desc: "Sitios de alto impacto diseñados para convertir. Ideal para validar y lanzar rápido.",
+    bullets: ["Diseño Moderno", "Optimizado para Leads", "Despliegue Rápido"],
     badge: "bg-cyan-500/10 text-cyan-200 border-cyan-500/25",
   },
   {
-    icon: <BarChart3 size={18} className="text-amber-200" />,
-    title: "Data Scientist (KPIs y dashboards)",
-    desc: "Definición de métricas, análisis y tableros para decisiones basadas en datos.",
-    bullets: ["SQL + modelado", "Limpieza/EDA", "Dashboard accionable"],
-    badge: "bg-amber-500/10 text-amber-200 border-amber-500/25",
-  },
-  {
-    icon: <Bot size={18} className="text-sky-200" />,
-    title: "Chatbots (GenIA + flujos)",
-    desc: "Bots para FAQs, captación de leads y automatización conectada a tus sistemas.",
-    bullets: ["Diseño conversacional", "Integración con APIs", "Iteración por métricas"],
+    icon: <Monitor size={18} className="text-sky-200" />,
+    title: "Aplicativos Web (SaaS / MVP)",
+    desc: "Plataformas con lógica compleja, bases de datos y paneles de usuario a medida.",
+    bullets: ["Fullstack React/Node", "Arquitectura Escalable", "Dashboards"],
     badge: "bg-sky-500/10 text-sky-200 border-sky-500/25",
   },
   {
-    icon: <BrainCircuit size={18} className="text-fuchsia-200" />,
-    title: "Inteligencia Artificial aplicada",
-    desc: "Features inteligentes: clasificación, resumen, asistencia y automatización de tareas.",
-    bullets: ["GenIA en producto", "RAG / fuentes", "Buenas prácticas"],
-    badge: "bg-fuchsia-500/10 text-fuchsia-200 border-fuchsia-500/25",
+    icon: <Workflow size={18} className="text-emerald-200" />,
+    title: "Automatización con n8n",
+    desc: "Conectamos tus sistemas y automatizamos flujos de trabajo avanzados sin errores.",
+    bullets: ["Workflows de Negocio", "Integración de APIs", "Ahorro de Tiempo"],
+    badge: "bg-emerald-500/10 text-emerald-200 border-emerald-500/25",
   },
   {
-    icon: <Workflow size={18} className="text-emerald-200" />,
-    title: "Integraciones y automatización",
-    desc: "Conecto servicios externos: APIs, webhooks y flujos para reducir trabajo manual.",
-    bullets: ["Integraciones", "Manejo de errores", "Documentación"],
-    badge: "bg-emerald-500/10 text-emerald-200 border-emerald-500/25",
+    icon: <Bot size={18} className="text-fuchsia-200" />,
+    title: "Chatbots e IA Aplicada",
+    desc: "Bots inteligentes para atención al cliente y captura de datos integrados a tu flujo.",
+    bullets: ["IA Generativa", "Respuestas Inteligentes", "Fácil de Instalar"],
+    badge: "bg-fuchsia-500/10 text-fuchsia-200 border-fuchsia-500/25",
   },
 ]
 
 const valor = [
   {
-    title: "Alcance claro",
-    desc: "Trabajo por fases (MVP → mejora), evitando promesas sin control.",
+    title: "Enfoque Pro",
+    desc: "Trabajo con metodologías ágiles y por fases (MVP → mejora continua).",
   },
   {
-    title: "Velocidad con calidad",
-    desc: "Entregas rápidas, pero con buenas prácticas y código mantenible.",
+    title: "Calidad de Código",
+    desc: "Código limpio, mantenible y escalable desde el primer commit.",
   },
   {
-    title: "Orientado a negocio",
-    desc: "Priorizo impacto: conversión, automatización, KPIs y reducción de tiempo.",
+    title: "Orientado a Resultados",
+    desc: "Priorizo el impacto directo en tu negocio: conversión y ahorro de tiempo.",
   },
 ]
 
@@ -80,22 +72,19 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 opacity-60 bg-[radial-gradient(800px_circle_at_30%_10%,rgba(34,211,238,.10),transparent_50%),radial-gradient(900px_circle_at_75%_90%,rgba(168,85,247,.12),transparent_55%)]" />
 
         <div className="relative mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-200 text-xs">
-              <Sparkles size={14} className="text-slate-200" />
-              Producto • Datos • GenIA
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-200 text-xs shadow-lg">
+              <Sparkles size={14} className="text-cyan-300" />
+              Lanzamientos • Automatización • Escalabilidad
             </div>
 
-            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-100">
-              Soluciones digitales para pymes:
-              <span className="block text-slate-200">
-                desarrollo web, datos, chatbots e IA aplicada
-              </span>
+            <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.05]">
+              Soluciones que <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">automatizan</span> y venden
             </h1>
 
-            <p className="mt-4 text-slate-300 text-lg leading-relaxed max-w-xl">
-              Soy recien egresado enfocado en construir productos funcionales y medibles. Trabajo por
-              fases (MVP → mejora), con entregas claras y comunicación directa.
+            <p className="mt-6 text-slate-400 text-lg leading-relaxed max-w-xl font-medium">
+              Ayudo a empresas a lanzar productos digitales sólidos y automatizar procesos con n8n e IA.
+              Enfoque pragmático: resultados reales en tiempos récord.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -116,7 +105,7 @@ export default function Home() {
                 variant="outline"
                 className="rounded-2xl border-white/20 bg-white/5 text-slate-100 hover:bg-white/10"
               >
-                <a href="#servicios" className="inline-flex items-center gap-2">
+                <a href="/servicios" className="inline-flex items-center gap-2">
                   <Code2 size={18} />
                   Ver servicios
                 </a>
@@ -128,35 +117,60 @@ export default function Home() {
             </div>
           </div>
 
-          {/* RIGHT PANEL: 3 value points */}
-          <div className="relative">
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
+          {/* RIGHT PANEL: Improved Dashboard Mockup Visual */}
+          <div className="relative group">
+            {/* Decorative glows */}
+            <div className="absolute -top-10 -right-10 size-64 bg-cyan-500/10 blur-[100px] rounded-full animate-pulse" />
+            <div className="absolute -bottom-10 -left-10 size-64 bg-fuchsia-500/10 blur-[100px] rounded-full animate-pulse delay-700" />
+
+            <div className="relative rounded-3xl border border-white/10 bg-slate-900/50 backdrop-blur-xl p-2 shadow-2xl overflow-hidden transform group-hover:scale-[1.02] transition-transform duration-700">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-white/5">
+                <div className="flex gap-1.5">
+                  <div className="size-2.5 rounded-full bg-rose-500/20 border border-rose-500/50" />
+                  <div className="size-2.5 rounded-full bg-amber-500/20 border border-amber-500/50" />
+                  <div className="size-2.5 rounded-full bg-emerald-500/20 border border-emerald-500/50" />
+                </div>
+                <div className="mx-auto text-[10px] font-bold text-slate-500 uppercase tracking-widest px-2 py-0.5 rounded-md border border-white/5 bg-white/5">
+                  Synaptek Platform • Analytics
+                </div>
+              </div>
+
+              <div className="aspect-[16/10] overflow-hidden bg-slate-950">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                  alt="Dashboard Data Visualization"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+                />
+              </div>
+
+              {/* Floating micro-cards for detail */}
+              <div className="absolute bottom-6 -right-6 hidden sm:block p-4 rounded-2xl border border-white/10 bg-slate-900/90 backdrop-blur-xl shadow-2xl animate-bounce-slow">
+                <div className="flex items-center gap-3">
+                  <div className="size-8 rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center">
+                    <Sparkles size={14} className="text-emerald-400" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Conversión</p>
+                    <p className="text-sm font-black text-white">+24.8%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Value grid below image (compact) */}
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
               {valor.map((v) => (
                 <div
                   key={v.title}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-5"
+                  className="rounded-2xl border border-white/5 bg-white/5 p-4 hover:bg-white/10 transition-colors"
                 >
-                  <div className="flex items-center gap-2">
-                    <div className="grid place-items-center size-9 rounded-xl border border-white/10 bg-white/5">
-                      <CheckCircle2 size={16} className="text-emerald-200" />
-                    </div>
-                    <h3 className="text-sm font-extrabold text-slate-100">{v.title}</h3>
+                  <div className="flex items-center gap-2 mb-2">
+                    <CheckCircle2 size={14} className="text-cyan-400" />
+                    <h3 className="text-[11px] font-black text-white uppercase tracking-tight">{v.title}</h3>
                   </div>
-                  <p className="mt-2 text-sm text-slate-300">{v.desc}</p>
+                  <p className="text-[11px] text-slate-400 leading-tight">{v.desc}</p>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-4 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.03] p-5">
-              <div className="flex items-center gap-2">
-                <div className="grid place-items-center size-9 rounded-xl border border-white/10 bg-white/5">
-                  <Bot size={16} className="text-sky-200" />
-                </div>
-                <p className="text-sm font-bold text-slate-100">Enfoque en automatización</p>
-              </div>
-              <p className="mt-2 text-sm text-slate-300">
-                Priorizo soluciones que reduzcan tiempo operativo (chatbots, integraciones y reportes).
-              </p>
             </div>
           </div>
         </div>
@@ -180,20 +194,6 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-3">
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-                <div className="text-[10px] text-slate-300">Áreas</div>
-                <div className="text-lg font-extrabold text-slate-100">5</div>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-                <div className="text-[10px] text-slate-300">Enfoque</div>
-                <div className="text-lg font-extrabold text-slate-100">MVP</div>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-                <div className="text-[10px] text-slate-300">Perfil</div>
-                <div className="text-lg font-extrabold text-emerald-200">Starter</div>
-              </div>
-            </div>
           </div>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -276,7 +276,7 @@ export default function Home() {
                 size="lg"
                 className="rounded-2xl bg-white text-slate-900 hover:bg-white/90"
               >
-                <a href="#contacto" className="inline-flex items-center gap-2">
+                <a href="/contacto" className="inline-flex items-center gap-2">
                   <Rocket size={18} />
                   Contactar
                 </a>
@@ -288,9 +288,9 @@ export default function Home() {
                 variant="outline"
                 className="rounded-2xl border-white/20 bg-white/5 text-slate-100 hover:bg-white/10"
               >
-                <a href="#proyectos" className="inline-flex items-center gap-2">
+                <a href="/soluciones" className="inline-flex items-center gap-2">
                   <Code2 size={18} />
-                  Ver proyectos
+                  Ver soluciones
                 </a>
               </Button>
             </div>

@@ -1,103 +1,101 @@
+import {
+  Zap,
+  ShieldCheck,
+  Cpu,
+  Workflow,
+  CheckCircle2,
+  Rocket,
+  Layout
+} from "lucide-react"
 
-import { useMemo, useState } from "react"
-import type { Skill, SkillArea } from "./types"
-import { skills } from "./data"
-import { matchesQuery, sortSkills } from "./utils"
-import { areasOrden } from "./meta"
-import TecnologiasFilters from "@/components/tecnologias/TecnologiasFilters"
-import TecnologiasGrid from "@/components/tecnologias/TecnologiasGrid"
-import { Brain, Code2 } from "lucide-react"
-
-function buildStats(list: Skill[]) {
-  return {
-    total: list.length,
-    core: list.filter((s) => s.core).length,
-    top: list.filter((s) => s.nivel >= 4).length,
-  }
-}
-
-export default function SkillsSection() {
-  const [areaActiva, setAreaActiva] = useState<SkillArea | "Todas">("Todas")
-  const [soloCore, setSoloCore] = useState(false)
-  const [query, setQuery] = useState("")
-
-  const stats = useMemo(() => buildStats(skills), [])
-
-  const filtradas = useMemo(() => {
-    return skills
-      .filter((s) => (areaActiva === "Todas" ? true : s.area === areaActiva))
-      .filter((s) => (soloCore ? !!s.core : true))
-      .filter((s) => matchesQuery(s, query))
-      .slice()
-      .sort(sortSkills)
-  }, [areaActiva, soloCore, query])
-
-  const agrupadas = useMemo(() => {
-    const map = new Map<SkillArea, Skill[]>()
-    for (const a of areasOrden) map.set(a, [])
-    for (const s of filtradas) map.get(s.area)?.push(s)
-    return map
-  }, [filtradas])
+export default function TecnologiasSection() {
+  const garantias = [
+    {
+      titulo: "Velocidad y Respuesta",
+      desc: "Usamos tecnologías modernas que cargan al instante, mejorando la experiencia de tus clientes y el posicionamiento en buscadores.",
+      icon: <Zap className="text-amber-400" />,
+      herramientas: ["React", "Next.js", "Vite"]
+    },
+    {
+      titulo: "Seguridad y Estabilidad",
+      desc: "Tus datos y los de tus clientes están protegidos con infraestructuras robustas y bases de datos de nivel bancario.",
+      icon: <ShieldCheck className="text-emerald-400" />,
+      herramientas: ["PostgreSQL", "Supabase", "Auth Segura"]
+    },
+    {
+      titulo: "Automatización Inteligente",
+      desc: "Conectamos tu negocio con las mejores herramientas de IA para que ahorres tiempo y reduzcas errores humanos.",
+      icon: <Workflow className="text-purple-400" />,
+      herramientas: ["n8n", "OpenAI", "Webhooks"]
+    },
+    {
+      titulo: "Diseño Adaptable",
+      desc: "Tu plataforma se verá y funcionará perfectamente en móviles, tablets y computadoras, sin excepciones.",
+      icon: <Layout className="text-cyan-400" />,
+      herramientas: ["TailwindCSS", "Framer Motion"]
+    }
+  ]
 
   return (
     <section
-      id="skills"
-      className={[
-        "relative py-20 px-6 rounded-3xl border border-white/10",
-        "bg-[radial-gradient(1200px_circle_at_20%_0%,rgba(168,85,247,.22),transparent_45%),radial-gradient(900px_circle_at_80%_100%,rgba(34,211,238,.16),transparent_45%),linear-gradient(180deg,rgba(2,6,23,.92),rgba(15,23,42,.78))]",
-      ].join(" ")}
+      id="garantia"
+      className="relative max-w-6xl mx-auto"
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-200 text-xs">
-              <Code2 size={14} className="text-slate-200" />
-              Habilidades clave
+      <div className="mb-16">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs mb-6">
+          <Cpu size={14} className="text-cyan-400" />
+          Nuestras Herramientas
+        </div>
+        <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">
+          Tecnología de punta, <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">resultados reales</span>
+        </h2>
+        <p className="text-xl text-slate-400 leading-relaxed max-w-3xl">
+          Seleccionamos cuidadosamente cada herramienta no por moda, sino para garantizar que tu negocio sea **rápido, seguro e imparable**.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {garantias.map((g, i) => (
+          <div
+            key={i}
+            className="group p-8 rounded-3xl border border-white/10 bg-slate-900/40 backdrop-blur-sm hover:border-white/20 transition-all duration-500"
+          >
+            <div className="size-12 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+              {g.icon}
             </div>
-
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-100">
-              Skills
-            </h2>
-
-            <p className="mt-2 text-slate-300 max-w-xl">
-              Enfoque en producto con capacidades de <span className="text-slate-100 font-semibold">Data Scientist</span>,
-              desarrollo y soluciones con <span className="text-slate-100 font-semibold">Chatbots</span> e{" "}
-              <span className="text-slate-100 font-semibold">Inteligencia Artificial</span>.
+            <h3 className="text-2xl font-bold text-white mb-4">{g.titulo}</h3>
+            <p className="text-slate-400 leading-relaxed mb-8">
+              {g.desc}
             </p>
-          </div>
 
-          <div className="grid grid-cols-3 gap-3">
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <div className="text-[10px] text-slate-300">Total</div>
-              <div className="text-lg font-extrabold text-slate-100">{stats.total}</div>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <div className="text-[10px] text-slate-300">Core</div>
-              <div className="text-lg font-extrabold text-emerald-200">{stats.core}</div>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <div className="text-[10px] text-slate-300">Nivel 4–5</div>
-              <div className="text-lg font-extrabold text-slate-100">{stats.top}</div>
+            <div className="flex flex-wrap gap-2">
+              {g.herramientas.map((h, j) => (
+                <div
+                  key={j}
+                  className="px-3 py-1 rounded-lg border border-white/5 bg-white/5 text-[10px] font-bold text-slate-500 uppercase tracking-widest"
+                >
+                  {h}
+                </div>
+              ))}
             </div>
           </div>
+        ))}
+      </div>
+
+      <div className="mt-16 p-8 rounded-3xl border border-dashed border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex items-center gap-4">
+          <div className="p-3 rounded-full bg-cyan-400/10 text-cyan-400">
+            <CheckCircle2 size={24} />
+          </div>
+          <div>
+            <h4 className="text-lg font-bold text-white">¿Por qué esto te importa?</h4>
+            <p className="text-sm text-slate-500">Un stack moderno significa que tu sitio durará años sin volverse obsoleto.</p>
+          </div>
         </div>
-
-        <TecnologiasFilters
-          areaActiva={areaActiva}
-          setAreaActiva={setAreaActiva}
-          soloCore={soloCore}
-          setSoloCore={setSoloCore}
-          query={query}
-          setQuery={setQuery}
-          visibles={filtradas.length}
-        />
-
-        <div className="mt-10 flex items-center gap-2 text-slate-300 text-xs">
-          <Brain size={14} />
-          <span>Ordenado por Core y nivel (lo más relevante primero).</span>
-        </div>
-
-        <TecnologiasGrid agrupadas={agrupadas} />
+        <a href="/contacto" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-950 font-bold hover:bg-cyan-50 transition-colors">
+          <Rocket size={18} />
+          Impulsa tu idea
+        </a>
       </div>
     </section>
   )
