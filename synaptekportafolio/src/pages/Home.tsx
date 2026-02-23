@@ -137,8 +137,9 @@ export default function Home() {
 
               <div className="aspect-[16/10] overflow-hidden bg-slate-950">
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=800&auto=format&fit=crop"
                   alt="Dashboard Data Visualization"
+                  loading="lazy"
                   className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
                 />
               </div>

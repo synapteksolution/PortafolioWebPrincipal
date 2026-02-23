@@ -1,5 +1,5 @@
-// src/components/Servicios.tsx
 import { useMemo, useState } from "react"
+import { Link } from "react-router-dom"
 import {
   Chrome,
   Globe,
@@ -142,21 +142,21 @@ function CardServicio({ s }: { s: Servicio }) {
 
         {/* ctas */}
         <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <a
-            href="#contacto"
+          <Link
+            to="/contacto"
             className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold
                        bg-white text-slate-900 hover:bg-cyan-50 transition-all duration-300 shadow-lg shadow-white/5"
           >
             <Rocket size={16} />
             Solicitar
-          </a>
-          <a
-            href="#proyectos"
+          </Link>
+          <Link
+            to="/soluciones"
             className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold
                        border border-white/10 bg-white/5 text-slate-100 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
           >
             Portafolio
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -244,8 +244,9 @@ export default function Servicios() {
     >
       <div className="absolute top-0 right-0 w-1/3 h-full opacity-20 pointer-events-none">
         <img
-          src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=75&w=800&auto=format&fit=crop"
           alt="Office"
+          loading="lazy"
           className="w-full h-full object-cover mix-blend-overlay grayscale"
         />
       </div>
@@ -316,17 +317,18 @@ export default function Servicios() {
               <p className="text-slate-400 mb-8 leading-relaxed">
                 Cada proyecto se gestiona con hitos claros, comunicación constante y un enfoque obsesivo en la experiencia final del usuario. No solo construimos código, construimos soluciones.
               </p>
-              <a
-                href="#contacto"
+              <Link
+                to="/contacto"
                 className="inline-flex items-center gap-2 text-white font-bold hover:text-cyan-400 transition-colors"
               >
                 Saber más sobre el proceso <Rocket size={16} />
-              </a>
+              </Link>
             </div>
             <div className="h-64 lg:h-full min-h-[300px] relative">
               <img
-                src="https://images.unsplash.com/photo-1522071823991-b515d267320d?q=80&w=2070&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1522071823991-b515d267320d?q=75&w=800&auto=format&fit=crop"
                 alt="Collaboration"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-transparent to-transparent lg:hidden" />

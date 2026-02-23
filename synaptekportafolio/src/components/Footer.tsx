@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-3 mb-6">
-            <img src="synapteksolution.png" alt="Logo" className="size-8 rounded-lg border border-white/10" />
+            <img src="synapteksolution.png" alt="Logo" loading="lazy" className="size-8 rounded-lg border border-white/10" />
             <span className="text-xl font-black text-white tracking-tighter">Synaptek</span>
           </div>
           <p className="text-sm leading-relaxed mb-6">

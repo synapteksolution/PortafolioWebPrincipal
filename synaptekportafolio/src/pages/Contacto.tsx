@@ -4,12 +4,12 @@ import {
   MapPin,
   Clock,
   Sparkles,
-  Send,
   MessageSquare,
   Linkedin,
   Github,
   ExternalLink,
 } from "lucide-react"
+import Formulario from "@/components/Contacto/Formulario"
 
 const infoContacto = [
   {
@@ -85,8 +85,9 @@ export default function Contacto() {
             {/* Image Section (New UX improvement) */}
             <div className="rounded-3xl overflow-hidden border border-white/10 aspect-video lg:aspect-square relative group">
               <img
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=75&w=800&auto=format&fit=crop"
                 alt="Workplace Collaboration"
+                loading="lazy"
                 className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-6">
@@ -176,173 +177,8 @@ export default function Contacto() {
             </div>
           </div>
 
-          {/* RIGHT: Form (3 cols) */}
           <div className="lg:col-span-3">
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.03] p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="grid place-items-center size-10 rounded-xl border border-white/10 bg-white/5">
-                  <Send size={18} className="text-cyan-300" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-extrabold text-slate-100">
-                    Envíame un mensaje
-                  </h3>
-                  <p className="text-xs text-slate-400">
-                    Completa el formulario y te contacto pronto
-                  </p>
-                </div>
-              </div>
-
-              <form className="space-y-5">
-                {/* Row: Nombres + Apellidos */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="nombres"
-                      className="block text-xs font-bold text-slate-200 mb-1.5"
-                    >
-                      Nombres
-                    </label>
-                    <input
-                      id="nombres"
-                      type="text"
-                      placeholder="Tu nombre"
-                      required
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="apellidos"
-                      className="block text-xs font-bold text-slate-200 mb-1.5"
-                    >
-                      Apellidos
-                    </label>
-                    <input
-                      id="apellidos"
-                      type="text"
-                      placeholder="Tu apellido"
-                      required
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition"
-                    />
-                  </div>
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-xs font-bold text-slate-200 mb-1.5"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="tu@correo.com"
-                    required
-                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition"
-                  />
-                </div>
-
-                {/* Row: Empresa + Teléfono */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="empresa"
-                      className="block text-xs font-bold text-slate-200 mb-1.5"
-                    >
-                      Empresa / Negocio
-                    </label>
-                    <input
-                      id="empresa"
-                      type="text"
-                      placeholder="Mi empresa"
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="telefono"
-                      className="block text-xs font-bold text-slate-200 mb-1.5"
-                    >
-                      Teléfono
-                    </label>
-                    <input
-                      id="telefono"
-                      type="tel"
-                      placeholder="+57 305 3991456"
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition"
-                    />
-                  </div>
-                </div>
-
-                {/* Servicio de interés */}
-                <div>
-                  <label
-                    htmlFor="servicio"
-                    className="block text-xs font-bold text-slate-200 mb-1.5"
-                  >
-                    ¿Qué servicio te interesa?
-                  </label>
-                  <select
-                    id="servicio"
-                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-slate-100 outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition appearance-none"
-                  >
-                    <option value="" className="bg-slate-900">
-                      Selecciona una opción
-                    </option>
-                    <option value="web" className="bg-slate-900">
-                      Desarrollo Web (MVP / Landing)
-                    </option>
-                    <option value="software" className="bg-slate-900">
-                      Software a medida
-                    </option>
-                    <option value="data" className="bg-slate-900">
-                      Data & Dashboards
-                    </option>
-                    <option value="chatbots" className="bg-slate-900">
-                      Chatbots / IA
-                    </option>
-                    <option value="integraciones" className="bg-slate-900">
-                      Integraciones / APIs
-                    </option>
-                    <option value="otro" className="bg-slate-900">
-                      Otro
-                    </option>
-                  </select>
-                </div>
-
-                {/* Descripción */}
-                <div>
-                  <label
-                    htmlFor="descripcion"
-                    className="block text-xs font-bold text-slate-200 mb-1.5"
-                  >
-                    Cuéntame sobre tu proyecto
-                  </label>
-                  <textarea
-                    id="descripcion"
-                    rows={4}
-                    placeholder="Describe brevemente qué necesitas: tipo de solución, problema a resolver, contexto del negocio…"
-                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition resize-none"
-                  />
-                </div>
-
-                {/* Submit */}
-                <button
-                  type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-sm font-extrabold bg-white text-slate-900 hover:bg-white/90 transition cursor-pointer"
-                >
-                  <Send size={16} />
-                  Enviar propuesta
-                </button>
-
-                <p className="text-center text-[11px] text-slate-500">
-                  Al enviar aceptas que te contacte por email para discutir tu proyecto.
-                </p>
-              </form>
-            </div>
+            <Formulario className="bg-gradient-to-b from-white/[0.07] to-white/[0.02] border-white/10 shadow-2xl" />
           </div>
         </div>
       </div>
