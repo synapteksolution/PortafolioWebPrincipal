@@ -180,7 +180,7 @@ export default function Formulario({ className }: { className?: string }) {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full h-12 rounded-xl bg-cyan-400 hover:bg-cyan-500 text-slate-950 font-black uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(34,211,238,0.3)] active:scale-95 disabled:opacity-50 disabled:active:scale-100"
+            className="w-full h-12 rounded-xl bg-cyan-400 hover:bg-cyan-500 text-slate-950 font-white uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(34,211,238,0.3)] active:scale-95 disabled:opacity-50 disabled:active:scale-100"
           >
             {isSubmitting ? (
               <div className="flex items-center gap-2">
@@ -188,7 +188,7 @@ export default function Formulario({ className }: { className?: string }) {
                 Enviando...
               </div>
             ) : (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-white">
                 Enviar Información
                 <Send size={16} />
               </div>

@@ -15,19 +15,19 @@ const infoContacto = [
   {
     icon: <Mail size={18} className="text-cyan-300" />,
     label: "Email",
-    value: "contacto@synaptek.dev",
-    href: "mailto:contacto@synaptek.dev",
+    value: "synapteksoluciones@gmail.com",
+
   },
   {
     icon: <Phone size={18} className="text-emerald-300" />,
     label: "Teléfono",
-    value: "+57 300 000 0000",
-    href: "tel:+573000000000",
+    value: "+57 3155047301",
+    href: "https://wa.me/message/XRT5KYQZT64ZP1",
   },
   {
     icon: <MapPin size={18} className="text-amber-300" />,
     label: "Ubicación",
-    value: "Colombia (remoto)",
+    value: "Cali - Colombia (remoto)",
     href: null,
   },
   {

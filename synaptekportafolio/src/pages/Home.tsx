@@ -93,7 +93,7 @@ export default function Home() {
                 size="lg"
                 className="rounded-2xl bg-white text-slate-900 hover:bg-white/90"
               >
-                <a href="#contacto" className="inline-flex items-center gap-2">
+                <a href="/contacto" className="inline-flex items-center gap-2">
                   <Rocket size={18} />
                   Solicitar propuesta
                 </a>
