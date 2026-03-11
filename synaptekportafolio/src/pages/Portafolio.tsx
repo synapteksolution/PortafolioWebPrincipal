@@ -37,6 +37,7 @@ const categorias: Categoria[] = [
         tecnologias: ["Diseño Moderno", "Ventas", "Google Ready", "Rápido"],
         imagen: "/LandingPageProducto/Landing.png",
         destacado: true,
+        link: "https://landingpageproducto.vercel.app/",
       },
       {
         titulo: "Pasarela de Pagos Segura",
@@ -131,12 +132,12 @@ export default function Portafolio() {
 
                       {/* Hover Overlay */}
                       <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
-                        <button className="p-3 rounded-full bg-white text-slate-950 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-75">
-                          <ExternalLink size={20} />
+                        <button className="p-3 rounded-full bg-white text-white transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-75">
+                          <a href={proyecto.link}>
+                            <ExternalLink size={20} />
+                          </a>
                         </button>
-                        <button className="p-3 rounded-full border border-white text-white transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-150">
-                          <Github size={20} />
-                        </button>
+
                       </div>
 
                       {proyecto.destacado && (
