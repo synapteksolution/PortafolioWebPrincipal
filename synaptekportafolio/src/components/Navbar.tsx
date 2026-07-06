@@ -1,372 +1,216 @@
-// src/components/Navbar.tsx
-// NOTA: Si estás en React Router, NO uses "use client".
-import * as React from "react"
-import { Link as RouterLink, useLocation } from "react-router-dom"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import {
-
-  Briefcase,
-  Code2,
-  Home,
-  Layers3,
-  Mail,
-  Sparkles,
-} from "lucide-react"
-
-type NavItem = {
-  label: string
-  to: string
-  title: string
-  desc: string
-  icon: React.ReactNode
-  group: "Principal" | "Servicios" | "Portfolio"
-}
-
-const NAV: NavItem[] = [
-  {
-    label: "Inicio",
-    to: "/",
-    title: "Inicio",
-    desc: "Vista general: enfoque, servicios y CTA.",
-    icon: <Home size={16} className="text-slate-200" />,
-    group: "Principal",
-  },
-  {
-    label: "Sobre",
-    to: "/sobre-nosotros",
-    title: "Sobre mí",
-    desc: "Visión, misión y propuesta de valor para pymes.",
-    icon: <Sparkles size={16} className="text-slate-200" />,
-    group: "Principal",
-  },
-  {
-    label: "Servicios",
-    to: "/servicios",
-    title: "Servicios",
-    desc: "MVP web, datos, automatización y chatbots.",
-    icon: <Layers3 size={16} className="text-slate-200" />,
-    group: "Servicios",
-  },
-  {
-    label: "Portafolio",
-    to: "/portafolio",
-    title: "Portafolio",
-    desc: "Proyectos y casos: producto, datos e IA.",
-    icon: <Briefcase size={16} className="text-slate-200" />,
-    group: "Portfolio",
-  },
-  {
-    label: "Skills",
-    to: "/tecnologias",
-    title: "Skills y tecnologías",
-    desc: "Stack: web, data scientist, IA y chatbots.",
-    icon: <Code2 size={16} className="text-slate-200" />,
-    group: "Portfolio",
-  },
-  {
-    label: "Contacto",
-    to: "/contacto",
-    title: "Contacto",
-    desc: "Agenda una conversación y cuéntame tu idea.",
-    icon: <Mail size={16} className="text-slate-200" />,
-    group: "Principal",
-  },
-]
-
-function Logo() {
-  return (
-    <RouterLink
-      to="/"
-      className="flex items-center gap-3 rounded-2xl px-2 py-2 hover:bg-white/5 transition"
-      aria-label="Ir al inicio"
-    >
-      <div className="relative">
-        <div className="absolute inset-0 blur-xl bg-cyan-400/20 rounded-full" />
-        <img
-          src="synapteksolution.png"
-          alt="Logo"
-          className="relative size-10 rounded-full border border-white/10 bg-white/5 object-cover"
-        />
-      </div>
-      <div className="hidden sm:block">
-        <div className="text-sm font-extrabold tracking-tight text-slate-100">
-          Synaptek
-        </div>
-        <div className="text-[11px] text-slate-400">
-          Producto • Datos • GenIA
-        </div>
-      </div>
-    </RouterLink>
-  )
-}
-
-function QuickBadges() {
-  return (
-    <div className="hidden lg:flex items-center gap-2">
-      <span className="text-[10px] px-2 py-1 rounded-full border border-cyan-500/25 bg-cyan-500/10 text-cyan-200 font-bold">
-        Web
-      </span>
-      <span className="text-[10px] px-2 py-1 rounded-full border border-amber-500/25 bg-amber-500/10 text-amber-200 font-bold">
-        Data
-      </span>
-      <span className="text-[10px] px-2 py-1 rounded-full border border-fuchsia-500/25 bg-fuchsia-500/10 text-fuchsia-200 font-bold">
-        IA
-      </span>
-      <span className="text-[10px] px-2 py-1 rounded-full border border-sky-500/25 bg-sky-500/10 text-sky-200 font-bold">
-        Chatbots
-      </span>
-    </div>
-  )
-}
-
-function ItemCard({
-  item,
-  active,
-}: {
-  item: NavItem
-  active?: boolean
-}) {
-  return (
-    <NavigationMenuLink asChild>
-      <RouterLink
-        to={item.to}
-        className={cn(
-          "block rounded-2xl p-4 transition",
-          "border border-white/10 bg-white/5 hover:bg-white/10",
-          active ? "ring-1 ring-white/20 border-white/20" : "",
-        )}
-      >
-        <div className="flex items-start gap-3">
-          <div className="grid place-items-center size-9 rounded-xl border border-white/10 bg-white/5">
-            {item.icon}
-          </div>
-          <div className="min-w-0">
-            <div className="text-sm font-extrabold text-slate-100 truncate">
-              {item.title}
-            </div>
-            <p className="mt-1 text-sm text-slate-300 leading-snug line-clamp-2">
-              {item.desc}
-            </p>
-          </div>
-        </div>
-      </RouterLink>
-    </NavigationMenuLink>
-  )
-}
-
-function MegaMenu({
-  title,
-  subtitle,
-  items,
-}: {
-  title: string
-  subtitle: string
-  items: NavItem[]
-}) {
-  const location = useLocation()
-
-  return (
-    <div className="w-[560px] p-4">
-      <div className="mb-3">
-        <div className="text-sm font-extrabold text-slate-100">{title}</div>
-        <div className="text-xs text-slate-400">{subtitle}</div>
-      </div>
-
-      <div className="grid grid-cols-2 gap-3">
-        {items.map((it) => (
-          <ItemCard
-            key={it.to}
-            item={it}
-            active={location.pathname === it.to}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
+import { useEffect, useMemo, useState } from 'react'
+import { Calendar, Instagram, Facebook } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
+import { useLanguage } from '../i18n/LanguageContext'
+import { waLink } from '../i18n/translations'
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Navbar() {
-  const location = useLocation()
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const { pathname } = useLocation()
+  const { t } = useLanguage()
 
-  const principal = React.useMemo(
-    () => NAV.filter((x) => x.group === "Principal"),
-    [],
-  )
-  const servicios = React.useMemo(
-    () => NAV.filter((x) => x.group === "Servicios"),
-    [],
-  )
-  const portfolio = React.useMemo(
-    () => NAV.filter((x) => x.group === "Portfolio"),
-    [],
+  // Mapeamos los links a sus nuevas rutas SPA
+  const links = useMemo(
+    () => [
+      { label: t.nav.links.home, to: '/' },
+      { label: t.nav.links.about, to: '/sobre-nosotros' },
+      { label: t.nav.links.services || 'Servicios', to: '/servicios' },
+      { label: t.nav.links.tech || 'Metodología', to: '/metodologia' },
+      { label: t.nav.links.portfolio, to: '/portafolio' },
+      { label: t.nav.links.contact, to: '/contacto' },
+    ],
+    [t]
   )
 
-  const isActive = (to: string) => location.pathname === to
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Al cambiar de página, cerramos menú móvil y scrolleamos arriba
+  useEffect(() => {
+    setMenuOpen(false)
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   return (
-    <header className="sticky top-0 z-50">
-      {/* barra superior con blur */}
-      <div className="border-b border-white/10 bg-slate-950/70 backdrop-blur supports-[backdrop-filter]:bg-slate-950/55">
-        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-3">
-          <Logo />
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 h-[80px] flex items-center transition-all duration-700 ${
+        scrolled ? 'bg-[var(--ink-900)]/95 backdrop-blur-md shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)]' : 'bg-[var(--ink-900)]/50 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none'
+      }`}
+    >
+      <div className="w-full max-w-[1600px] mx-auto px-4 lg:px-8 flex items-center justify-between h-full">
+        {/* Zone 1: Logo */}
+        <div className="flex items-center h-full">
+          <Link to="/" className="flex items-center group h-full">
+            <img
+              src="/images/Logo.jpeg"
+              alt={t.nav.logoAlt}
+              className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 h-[64px] w-[64px] rounded-full border-2 border-[var(--moss)]/30 hover:border-[var(--moss)]"
+              loading="eager"
+              fetchPriority="high"
+            />
+          </Link>
+        </div>
 
-          <QuickBadges />
+        {/* Separator Logo / Nav */}
+        <div className="hidden lg:block w-[1px] h-8 bg-gray-800 mx-6"></div>
 
-          {/* CTA */}
-          <div className="flex items-center gap-2">
-            <Button
-              asChild
-              variant="outline"
-              className="hidden sm:inline-flex rounded-2xl border-white/20 bg-white/5 text-slate-100 hover:bg-white/10"
+        {/* Zone 2: Navigation */}
+        <div className="hidden lg:flex items-center gap-5 xl:gap-8 h-full flex-1 justify-center px-4">
+          {links.map((link) => {
+            const isActive = pathname === link.to
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`nav-link flex items-center h-full px-1 text-[0.75rem] font-medium tracking-[0.15em] uppercase transition-all duration-300 border-b-2 ${
+                  isActive
+                    ? 'text-white border-[var(--moss)]'
+                    : 'text-gray-400 hover:text-white border-transparent'
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
+        </div>
+
+        {/* Separator Nav / Right */}
+        <div className="hidden lg:block w-[1px] h-8 bg-gray-800 mx-6"></div>
+
+        {/* Zone 3: Right (Socials + Reserva + CTA) */}
+        <div className="hidden lg:flex items-center h-full">
+
+          {/* Socials */}
+          <div className="flex items-center gap-4 px-2">
+            <a
+              href="https://www.instagram.com/napsitek/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-[#E1306C] hover:scale-110 transition-all duration-300"
+              title="Instagram"
             >
-              <RouterLink to="/portafolio" className="inline-flex items-center gap-2">
-                <Briefcase size={16} />
-                Ver portafolio
-              </RouterLink>
-            </Button>
-
-            <Button
-              asChild
-              className="rounded-2xl bg-white text-slate-900 hover:bg-white/90"
+              <Instagram className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.facebook.com/napsitek/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-[#1877F2] hover:scale-110 transition-all duration-300"
+              title="Facebook"
             >
-              <RouterLink to="/contacto" className="inline-flex items-center gap-2">
-                <Mail size={16} />
-                Contacto
-              </RouterLink>
-            </Button>
+              <Facebook className="w-4 h-4" />
+            </a>
+            <a
+              href={waLink(t.nav.whatsappMsg)}
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-[#25D366] hover:scale-110 transition-all duration-300 flex items-center justify-center"
+              title="WhatsApp"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+              </svg>
+            </a>
+          </div>
+
+          {/* Separator */}
+          <div className="w-[1px] h-8 bg-gray-800 mx-4"></div>
+
+          {/* Language Switcher */}
+          <LanguageSwitcher className="px-2" />
+
+          {/* Separator */}
+          <div className="w-[1px] h-8 bg-gray-800 mx-4"></div>
+
+          {/* Reserva CTA */}
+          <Link
+            to="/contacto"
+            className="ml-2 bg-[var(--moss)] hover:bg-[var(--moss-light)] text-white font-bold text-[0.65rem] tracking-[0.2em] uppercase py-2.5 px-6 rounded-[24px] transition-colors flex items-center gap-2"
+          >
+            <Calendar className="w-4 h-4" />
+            <span>{t.nav.cta}</span>
+          </Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="lg:hidden w-8 h-8 flex flex-col justify-center items-center gap-1.5 bg-transparent border-none cursor-pointer z-50"
+          aria-label={t.nav.openMenu}
+        >
+          <span className={`block w-6 h-[1.5px] bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[4.5px]' : ''}`} />
+          <span className={`block w-6 h-[1.5px] bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-6 h-[1.5px] bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[4.5px]' : ''}`} />
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden fixed top-[80px] left-0 w-full bg-[var(--ink-900)]/95 backdrop-blur-md overflow-hidden transition-all duration-500 border-b border-gray-800 ${
+          menuOpen ? 'max-h-[500px] py-6' : 'max-h-0 py-0 border-transparent'
+        }`}
+      >
+        <div className="flex flex-col items-center gap-6">
+          {links.map((link) => {
+            const isActive = pathname === link.to
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={() => setMenuOpen(false)}
+                className={`text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-300 ${isActive ? 'text-[var(--moss)]' : 'text-gray-300 hover:text-white'}`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
+
+          <LanguageSwitcher className="mt-2" />
+
+          <Link
+            to="/contacto"
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center justify-center gap-2 bg-[var(--moss)] hover:bg-[var(--moss-light)] text-white font-bold text-[0.65rem] tracking-[0.2em] uppercase py-3 px-6 rounded-[24px] mt-4 transition-colors w-full max-w-[200px]"
+          >
+            <Calendar className="w-4 h-4" />
+            <span>{t.nav.cta}</span>
+          </Link>
+
+          <div className="flex gap-8 mt-4">
+            <a
+              href="https://www.instagram.com/napsitek/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-[#E1306C] hover:scale-110 transition-all duration-300"
+            >
+              <Instagram className="w-6 h-6" />
+            </a>
+            <a
+              href="https://www.facebook.com/napsitek/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-[#1877F2] hover:scale-110 transition-all duration-300"
+            >
+              <Facebook className="w-6 h-6" />
+            </a>
+            <a
+              href={waLink(t.nav.whatsappMsg)}
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-[#25D366] hover:scale-110 transition-all duration-300 flex items-center justify-center"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+              </svg>
+            </a>
           </div>
         </div>
-
-        {/* menú */}
-        <div className="mx-auto max-w-6xl px-4 pb-3 flex justify-center">
-          <NavigationMenu viewport={false}>
-            <NavigationMenuList className="gap-1">
-              {/* PRINCIPAL */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  className={cn(
-                    "rounded-2xl bg-transparent text-slate-100 hover:bg-white/5",
-                    isActive("/") || isActive("/sobre-nosotros") || isActive("/contacto")
-                      ? "bg-white/5"
-                      : "",
-                  )}
-                >
-                  Principal
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-slate-950/90 border border-white/10 rounded-2xl">
-                  <MegaMenu
-                    title="Principal"
-                    subtitle="Inicio, sobre mí y contacto."
-                    items={principal}
-                  />
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              {/* SERVICIOS */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  className={cn(
-                    "rounded-2xl bg-transparent text-slate-100 hover:bg-white/5",
-                    isActive("/servicios") ? "bg-white/5" : "",
-                  )}
-                >
-                  Servicios
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-slate-950/90 border border-white/10 rounded-2xl">
-                  <MegaMenu
-                    title="Servicios"
-                    subtitle="MVP web, datos, automatización y chatbots."
-                    items={servicios}
-                  />
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              {/* PORTFOLIO */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  className={cn(
-                    "rounded-2xl bg-transparent text-slate-100 hover:bg-white/5",
-                    isActive("/portafolio") || isActive("/tecnologias") ? "bg-white/5" : "",
-                  )}
-                >
-                  Portafolio
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-slate-950/90 border border-white/10 rounded-2xl">
-                  <MegaMenu
-                    title="Portafolio"
-                    subtitle="Proyectos, skills y stack."
-                    items={portfolio}
-                  />
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              {/* Accesos rápidos (visibles en desktop) */}
-              <NavigationMenuItem className="hidden md:block">
-                <NavigationMenuLink asChild>
-                  <RouterLink
-                    to="/servicios"
-                    className={cn(
-                      "px-4 py-2 rounded-2xl text-sm font-semibold transition",
-                      "text-slate-100 hover:bg-white/5",
-                      isActive("/servicios") ? "bg-white/5" : "",
-                    )}
-                  >
-                    <span className="inline-flex items-center gap-2">
-                      <Layers3 size={16} />
-                      Servicios
-                    </span>
-                  </RouterLink>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem className="hidden md:block">
-                <NavigationMenuLink asChild>
-                  <RouterLink
-                    to="/tecnologias"
-                    className={cn(
-                      "px-4 py-2 rounded-2xl text-sm font-semibold transition",
-                      "text-slate-100 hover:bg-white/5",
-                      isActive("/tecnologias") ? "bg-white/5" : "",
-                    )}
-                  >
-                    <span className="inline-flex items-center gap-2">
-                      <Code2 size={16} />
-                      Skills
-                    </span>
-                  </RouterLink>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem className="hidden md:block">
-                <NavigationMenuLink asChild>
-                  <RouterLink
-                    to="/contacto"
-                    className={cn(
-                      "px-4 py-2 rounded-2xl text-sm font-semibold transition",
-                      "text-slate-100 hover:bg-white/5",
-                      isActive("/contacto") ? "bg-white/5" : "",
-                    )}
-                  >
-                    <span className="inline-flex items-center gap-2">
-                      <Mail size={16} />
-                      Contacto
-                    </span>
-                  </RouterLink>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
       </div>
-    </header>
+    </nav>
   )
 }

@@ -38,7 +38,7 @@ export default function Formulario({ className }: { className?: string }) {
       } else {
         setStatus("error")
       }
-    } catch (error) {
+    } catch {
       setStatus("error")
     } finally {
       setIsSubmitting(false)

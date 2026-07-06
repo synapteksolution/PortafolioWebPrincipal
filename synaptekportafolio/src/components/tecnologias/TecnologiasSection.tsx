@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import {
   Zap,
   ShieldCheck,
@@ -92,10 +93,10 @@ export default function TecnologiasSection() {
             <p className="text-sm text-slate-500">Un stack moderno significa que tu sitio durará años sin volverse obsoleto.</p>
           </div>
         </div>
-        <a href="/contacto" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-950 font-bold hover:bg-cyan-50 transition-colors">
+        <Link to="/contacto" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-950 font-bold hover:bg-cyan-50 transition-colors">
           <Rocket size={18} />
           Impulsa tu idea
-        </a>
+        </Link>
       </div>
     </section>
   )
