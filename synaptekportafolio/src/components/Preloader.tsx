@@ -54,11 +54,11 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#D5CFC6] transition-all duration-700 ease-in-out ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white transition-all duration-700 ease-in-out ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="relative w-[85vw] max-w-[400px] aspect-square flex items-center justify-center overflow-hidden rounded-[4px] shadow-lg">
+      <div className="relative w-[85vw] max-w-[400px] aspect-square flex items-center justify-center overflow-hidden rounded-full shadow-2xl">
         <video
           autoPlay
           muted
@@ -66,7 +66,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           loop
           className="w-full h-full object-cover scale-105"
         >
-          <source src="/images/logo-wobble-fast.mp4" type="video/mp4" />
+          <source src="/images/logo2.mp4" type="video/mp4" />
           Tu navegador no soporta videos.
         </video>
       </div>

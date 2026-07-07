@@ -40,9 +40,16 @@ export default function TecnologiasSection() {
   return (
     <section
       id="garantia"
-      className="relative max-w-6xl mx-auto"
+      className="relative max-w-6xl mx-auto overflow-hidden bg-[var(--ink-900)] py-20 px-8 rounded-3xl border border-white/10"
     >
-      <div className="mb-16">
+      {/* BACKGROUND IMAGE CON OVERLAY */}
+      <div 
+        className="absolute inset-0 z-0 opacity-15 pointer-events-none"
+        style={{ backgroundImage: 'url("/images/fondo.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
+      ></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--ink-900)] via-[var(--ink-900)]/90 to-[var(--ink-900)] pointer-events-none"></div>
+
+      <div className="relative z-10 mb-16">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs mb-6">
           <Cpu size={14} className="text-cyan-400" />
           Nuestras Herramientas

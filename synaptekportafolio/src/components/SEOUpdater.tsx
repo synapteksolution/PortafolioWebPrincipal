@@ -1,20 +1,35 @@
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export function SEOUpdater() {
+  const location = useLocation()
+  const { t, lang } = useLanguage()
+
   useEffect(() => {
-    // 1. Tomamos los datos estáticos de Napsi Tek
+    const path = location.pathname
+    let pageKey: 'home' | 'about' | 'portfolio' | 'contact' | 'services' | 'methodology' = 'home'
+
+    if (path.includes('/sobre-nosotros')) pageKey = 'about'
+    else if (path.includes('/portafolio')) pageKey = 'portfolio'
+    else if (path.includes('/contacto')) pageKey = 'contact'
+    else if (path.includes('/servicios')) pageKey = 'services'
+    else if (path.includes('/metodologia')) pageKey = 'methodology'
+
+    const pageSeo = t.seo[pageKey] || t.seo.home
+
     const seoData = {
-      title: 'Napsi Tek — Desarrollo de Software y Automatización con IA',
-      description: 'Transformamos el caos operativo en sistemas eficientes. Desarrollo de páginas web, sistemas a la medida y automatización con IA para acelerar tu negocio.',
-      siteName: 'Napsi Tek',
-      ogLocale: 'es_CO'
+      title: pageSeo.title,
+      description: pageSeo.description,
+      siteName: t.seo.siteName,
+      ogLocale: t.seo.ogLocale
     }
 
     // 2. Actualizar Document Title
     document.title = seoData.title
 
     // 3. Actualizar HTML lang
-    document.documentElement.lang = 'es'
+    document.documentElement.lang = lang
 
     // 4. Update Meta Tags (helper function)
     const updateMetaTag = (selector: string, attribute: string, value: string) => {
@@ -42,12 +57,13 @@ export function SEOUpdater() {
     updateMetaTag('meta[property="og:description"]', 'content', seoData.description)
     updateMetaTag('meta[property="og:site_name"]', 'content', seoData.siteName)
     updateMetaTag('meta[property="og:locale"]', 'content', seoData.ogLocale)
+    updateMetaTag('meta[property="og:url"]', 'content', window.location.href)
 
     // Actualizar Twitter tags
     updateMetaTag('meta[name="twitter:title"]', 'content', seoData.title)
     updateMetaTag('meta[name="twitter:description"]', 'content', seoData.description)
 
-  }, [])
+  }, [location.pathname, t, lang])
 
-  return null // Este componente no renderiza nada visualmente
+  return null
 }

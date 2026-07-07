@@ -1,9 +1,12 @@
+import { useLanguage } from '../i18n/LanguageContext'
 import { Link } from 'react-router-dom'
 import { Calendar } from 'lucide-react'
 import { AboutSection } from '../components/AboutSection'
 import { MethodologySection } from '../components/MethodologySection'
 
 export default function Home() {
+  const { t } = useLanguage()
+
   return (
     <div className="w-full">
       {/* ---------- HERO SECTION ---------- */}
@@ -26,13 +29,13 @@ export default function Home() {
         <div className="wrap relative z-10 max-w-3xl">
           <div className="flex flex-col items-start text-left">
             <h1 className="animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150">
-              Desarrollo de software y automatización para <em>acelerar tu negocio.</em>
+              {t.hero.headline1} <em>{t.hero.headlineEm}</em>
             </h1>
             <p className="lead animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-              Ya sea que tengas una barbería, una sastrería o una clínica, diseñamos páginas web y sistemas a la medida que eliminan el trabajo manual: desde agendamiento inteligente de citas hasta el control exacto de tu inventario.
+              {t.hero.paragraph}
             </p>
             <div className="btn-row justify-start animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500 flex flex-wrap gap-4 mt-8">
-              <Link to="/contacto" className="btn-primary">Agendar diagnóstico</Link>
+              <Link to="/contacto" className="btn-primary">{t.hero.ctaPrimary}</Link>
               <a 
                 href="https://wa.me/message/XRT5KYQZT64ZP1" 
                 target="_blank" 
@@ -56,18 +59,25 @@ export default function Home() {
       <MethodologySection />
 
       {/* ---------- CONTACTO / CALENDARIO SECTION ---------- */}
-      <section className="cta-final py-24" id="contacto">
-        <div className="wrap max-w-7xl mx-auto px-6">
+      <section className="cta-final py-24 relative overflow-hidden bg-[var(--ink-900)]" id="contacto">
+        {/* BACKGROUND IMAGE CON OVERLAY */}
+        <div 
+          className="absolute inset-0 z-0 opacity-15 pointer-events-none"
+          style={{ backgroundImage: 'url("/images/fondo.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
+        ></div>
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--ink-900)] via-[var(--ink-900)]/90 to-[var(--ink-900)] pointer-events-none"></div>
+
+        <div className="wrap max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
-            <span className="eyebrow text-[var(--moss)] font-bold tracking-[0.2em] uppercase text-xs">Hablemos de tu negocio</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-4 text-white leading-tight">Cuéntanos cómo trabajas hoy y diseñamos la solución adecuada</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed">Selecciona el día y hora que mejor te convenga para una videollamada de 20 minutos. Analizamos tu operación y te proponemos un flujo eficiente sin compromiso.</p>
+            <span className="eyebrow text-[var(--moss)] font-bold tracking-[0.2em] uppercase text-xs">{t.contactPage.eyebrow}</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-4 text-white leading-tight">{t.contactPage.headline}</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed">{t.contactPage.paragraph}</p>
           </div>
           
           <div className="flex justify-center mt-8">
             <Link to="/contacto" className="inline-flex items-center gap-2 bg-[var(--moss)] text-[var(--ink-900)] font-bold py-3 px-8 rounded-full hover:brightness-110 transition-transform hover:scale-105 duration-300">
               <Calendar className="w-5 h-5" />
-              Agendar diagnóstico
+              {t.nav.cta}
             </Link>
           </div>
         </div>

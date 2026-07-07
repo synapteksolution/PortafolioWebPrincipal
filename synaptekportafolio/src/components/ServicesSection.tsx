@@ -1,8 +1,15 @@
-import { ShoppingBag, CreditCard, Zap, TrendingUp, BarChart3, PackageSearch, ShieldCheck } from 'lucide-react'
+import { ShoppingBag, CreditCard, Zap, TrendingUp, BarChart3, PackageSearch, ShieldCheck, ExternalLink } from 'lucide-react'
 
 export function ServicesSection() {
   return (
     <section id="servicios" className="py-24 bg-[var(--ink-900)] relative overflow-hidden flex flex-col gap-32">
+      {/* BACKGROUND IMAGE CON OVERLAY */}
+      <div 
+        className="absolute inset-0 z-0 opacity-15 pointer-events-none"
+        style={{ backgroundImage: 'url("/images/fondo.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
+      ></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--ink-900)] via-[var(--ink-900)]/90 to-[var(--ink-900)] pointer-events-none"></div>
+
       {/* Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[var(--moss)]/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--ochre)]/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -43,10 +50,14 @@ export function ServicesSection() {
               </div>
             </div>
 
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap gap-4 items-center">
               <a href="#contacto" className="inline-flex items-center gap-2 bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition-colors duration-300">
                 Mejorar mi presencia web
                 <TrendingUp className="w-4 h-4" />
+              </a>
+              <a href="https://landingpageproducto.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-transparent border-2 border-blue-500/50 text-blue-400 font-bold py-3 px-8 rounded-full hover:bg-blue-500/10 transition-colors duration-300">
+                Ver ejemplo en vivo
+                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </div>

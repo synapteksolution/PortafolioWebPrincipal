@@ -47,20 +47,28 @@ export default function Formulario({ className }: { className?: string }) {
 
   return (
     <Card className={cn(
-      "w-full rounded-3xl overflow-hidden border-white/10 bg-slate-950/40 backdrop-blur-xl shadow-2xl",
+      "w-full rounded-3xl overflow-hidden border-white/10 bg-slate-950/40 backdrop-blur-xl shadow-2xl relative",
       className
     )}>
-      <CardHeader className="space-y-1 pb-8">
-        <div className="flex items-center gap-2 text-cyan-400 mb-2">
-          <MessageSquare size={16} />
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Formulario de contacto</span>
-        </div>
-        <CardTitle className="text-2xl font-black text-white tracking-tight">Impulsa tu proyecto</CardTitle>
-        <CardDescription className="text-slate-400">
-          Déjanos tus datos y un consultor experto se pondrá en contacto contigo.
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
+      {/* BACKGROUND IMAGE CON OVERLAY */}
+      <div 
+        className="absolute inset-0 z-0 opacity-15 pointer-events-none"
+        style={{ backgroundImage: 'url("/images/fondo.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
+      ></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--ink-900)] via-[var(--ink-900)]/90 to-[var(--ink-900)] pointer-events-none"></div>
+
+      <div className="relative z-10">
+        <CardHeader className="space-y-1 pb-8">
+          <div className="flex items-center gap-2 text-cyan-400 mb-2">
+            <MessageSquare size={16} />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Formulario de contacto</span>
+          </div>
+          <CardTitle className="text-2xl font-black text-white tracking-tight">Impulsa tu proyecto</CardTitle>
+          <CardDescription className="text-slate-400">
+            Déjanos tus datos y un consultor experto se pondrá en contacto contigo.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
@@ -196,6 +204,7 @@ export default function Formulario({ className }: { className?: string }) {
           </Button>
         </form>
       </CardContent>
+      </div>
     </Card>
   )
 }

@@ -47,7 +47,7 @@ export default function Navbar() {
         <div className="flex items-center h-full">
           <Link to="/" className="flex items-center group h-full">
             <img
-              src="/images/Logo.jpeg"
+              src="/images/logo2.jpeg"
               alt={t.nav.logoAlt}
               className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 h-[64px] w-[64px] rounded-full border-2 border-[var(--moss)]/30 hover:border-[var(--moss)]"
               loading="eager"

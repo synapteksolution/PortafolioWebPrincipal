@@ -1,3 +1,4 @@
+import { useLanguage } from '../i18n/LanguageContext'
 import { 
   ClipboardList, 
   Timer, 
@@ -6,70 +7,78 @@ import {
   ShieldCheck, 
   SlidersHorizontal, 
   LifeBuoy, 
-  FileCode2 
+  FileCode2,
+  Rocket
 } from 'lucide-react'
 
-const METHODOLOGY_STEPS = [
-  {
-    icon: ClipboardList,
-    title: 'Levantamiento de requerimientos',
-    desc: 'Antes de cotizar, realizamos una entrevista inicial. Creamos un documento de requerimientos funcionales y no funcionales para evitar suposiciones y asegurar que la propuesta responda a tu operación real.'
-  },
-  {
-    icon: Timer,
-    title: 'Propuesta por sprints',
-    desc: 'Dividimos el desarrollo en sprints cerrados con costo fijo. Cada uno incluye una fecha de entrega ideal y una fecha máxima (con margen de seguridad) para protegerte ante cualquier eventualidad.'
-  },
-  {
-    icon: Wallet,
-    title: 'Pago contra entrega',
-    desc: 'Al cerrar cada sprint entregamos funcionalidad real; nunca pagas por trabajo que no has visto. Ofrecemos modalidad de pago por sprint o pago anticipado del 100% (con descuento).'
-  },
-  {
-    icon: Split,
-    title: 'Desarrollo en paralelo',
-    desc: 'Si necesitas varias piezas (ej. landing page + sistema administrativo), los sprints de ambos avanzan simultáneamente. Esto reduce considerablemente el tiempo total de entrega.'
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Último sprint gratuito',
-    desc: 'Cada proyecto cierra con un sprint de pruebas sin costo (visualización, rendimiento, seguridad, ajustes por feedback). Es nuestra validación final antes de la entrega oficial.'
-  },
-  {
-    icon: SlidersHorizontal,
-    title: 'Alcance controlado',
-    desc: 'Cualquier extra fuera del sprint se avisa previamente. Decidimos en conjunto si ampliamos el alcance y el presupuesto antes de acercarnos al límite de horas.'
-  },
-  {
-    icon: LifeBuoy,
-    title: 'Soporte post-entrega',
-    desc: 'Incluimos 3 meses de soporte gratuito para ajustes menores. A partir del mes 4, puedes tomar un plan mensual de soporte adaptado a tus necesidades reales.'
-  },
-  {
-    icon: FileCode2,
-    title: 'Propiedad intelectual',
-    desc: 'El código te pertenece y se entrega al 100% una vez completado el pago total del proyecto. Todo es transparente desde la propuesta inicial para evitar sorpresas.'
-  }
-]
-
 export function MethodologySection() {
+  const { t } = useLanguage()
+  
+  const METHODOLOGY_STEPS = [
+    {
+      icon: ClipboardList,
+      title: t.methodology.steps[0].title,
+      desc: t.methodology.steps[0].desc
+    },
+    {
+      icon: Timer,
+      title: t.methodology.steps[1].title,
+      desc: t.methodology.steps[1].desc
+    },
+    {
+      icon: Wallet,
+      title: t.methodology.steps[2].title,
+      desc: t.methodology.steps[2].desc
+    },
+    {
+      icon: Split,
+      title: t.methodology.steps[3].title,
+      desc: t.methodology.steps[3].desc
+    },
+    {
+      icon: ShieldCheck,
+      title: t.methodology.steps[4].title,
+      desc: t.methodology.steps[4].desc
+    },
+    {
+      icon: SlidersHorizontal,
+      title: t.methodology.steps[5].title,
+      desc: t.methodology.steps[5].desc
+    },
+    {
+      icon: LifeBuoy,
+      title: t.methodology.steps[6].title,
+      desc: t.methodology.steps[6].desc
+    },
+    {
+      icon: FileCode2,
+      title: t.methodology.steps[7].title,
+      desc: t.methodology.steps[7].desc
+    }
+  ]
+
   return (
     <section id="metodologia" className="scroll-mt-20 py-20 bg-[var(--ink-900)] border-t border-[var(--ink-800)] relative overflow-hidden">
       {/* BACKGROUND IMAGE CON OVERLAY */}
       <div 
-        className="absolute inset-0 z-0 opacity-[0.15] pointer-events-none mix-blend-overlay"
+        className="absolute inset-0 z-0 opacity-15 pointer-events-none"
         style={{ backgroundImage: 'url("/images/fondo.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       ></div>
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--ink-900)] via-transparent to-[var(--ink-900)] pointer-events-none"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--ink-900)] via-[var(--ink-900)]/90 to-[var(--ink-900)] pointer-events-none"></div>
 
       <div className="wrap relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <span className="eyebrow text-[var(--moss)]">Nuestra Metodología</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-4 text-[var(--paper)]">
-            Transparencia y resultados reales
+          <div className="inline-flex items-center justify-center mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--ochre-light)]/20 bg-[var(--ochre-light)]/10 text-[var(--ochre-light)] text-xs uppercase tracking-widest font-bold">
+              <Rocket size={14} />
+              {t.methodology.eyebrow}
+            </div>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black mb-6 text-white tracking-tight leading-tight">
+            {t.methodology.headlinePrefix} <span className="text-[var(--ochre-light)]">{t.methodology.headlineEm}</span>
           </h2>
-          <p className="text-gray-400">
-            Nuestras reglas de negocio están diseñadas para proteger tu inversión. No cobramos por suposiciones ni te obligamos a pagar por trabajo que no has visto funcionando.
+          <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto">
+            {t.methodology.paragraph}
           </p>
         </div>
 
