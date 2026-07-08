@@ -1,5 +1,80 @@
 # Design System Master File
 
+
+
+# Contexto del Proyecto Web "Le-Veston"
+
+## Descripción General
+"Napsi Tek" es una aplicación web moderna desarrollada con un enfoque fuertemente visual y animado. Está construida como una Single Page Application (SPA) que utiliza técnicas avanzadas de animación (GSAP) para ofrecer una experiencia premium y fluida ("Scrollytelling").
+
+## Tecnologías Principales (Tech Stack)
+- **Framework:** React (v19)
+- **Lenguaje:** TypeScript
+- **Bundler:** Vite
+- **Estilos:** TailwindCSS (v4)
+- **Animaciones:** GSAP (v3.14) junto con `@gsap/react` y su plugin `ScrollSmoother` para una experiencia de scroll suave y fluida.
+- **Iconos:** Lucide React
+
+## Estructura del Proyecto
+
+El código fuente principal reside en la carpeta `synaptekportafolio/src/`:
+
+### Archivo de Entrada Principal (`App.tsx`)
+La aplicación está estructurada con capas visuales fijas (overlays) independientes del flujo de scroll principal, y un contenedor principal envolvente para el efecto de scroll suavizado.
+- **Elementos Fijos (Fuera del ScrollSmoother):**
+  - `Preloader`: Pantalla de carga inicial.
+  - `CustomCursor`: Cursor personalizado interactivo.
+  - `ScrollProgress`: Indicador visual del progreso de scroll de la página.
+  - `Navbar`: Menú de navegación principal.
+- **Contenido Principal (Dentro de `#smooth-wrapper` y `#smooth-content`):**
+  - Se compone de secciones apiladas verticalmente que forman la experiencia de inicio.
+
+### Secciones (`src/sections/`)
+Contiene los distintos bloques que construyen la página principal, fuertemente enfocados en animaciones y presentación de producto:
+- `HeroSection.tsx`: Sección principal introductoria.
+- `ServicePillars.tsx`: Pilares del servicio ofrecido.
+- `ScrollytellingSection.tsx`: Sección interactiva que cuenta una historia a medida que se hace scroll.
+- `EditorialSection.tsx`: Sección de estilo editorial / revista.
+- `.tsx`: Sección dedicada a mostrar los tejidos/telas.
+- `ServicesSection.tsx`: Muestra de la colección principal de servicios para ofrecer.
+- `FooterCTA.tsx`: Pie de página y llamada a la acción (Call to Action).
+- Otros componentes disponibles: `AnimatedCarouselSection.tsx`, `BlueSuitsScrollytelling.tsx`, `ProcessSection.tsx`.
+
+### Componentes y Páginas
+- **`src/components/ui/`**: Componentes reutilizables de interfaz de usuario.
+- **`src/pages/`**: Rutas o vistas de la aplicación.
+  - `Inicio/`: Componentes específicos de la vista inicial.
+  - `Admin/`: Componentes o vistas para el área de administración.
+- **`src/hooks/` y `src/lib/`**: Lógica reutilizable y utilidades (por ejemplo, el hook `useScrollSmoother` para inicializar GSAP).
+- **`src/services/`**: Lógica de integración con APIs o backend.
+
+## Flujo de Trabajo y Comandos
+El proyecto está configurado con `package.json` utilizando Vite:
+- `npm run dev` (o `pnpm dev` / `yarn dev`): Inicia el servidor de desarrollo en modo local.
+- `npm run build`: Compila TypeScript y genera la versión optimizada para producción.
+- `npm run lint`: Ejecuta ESLint para mantener la calidad del código.
+
+
+##  Imagenes
+Las imagenes del slide de la pagina principal que se encuentran en el componente principal `src/sections/HeroSection.tsx` estan en `public/images/`.
+
+## Logo 
+
+Ruta de logo normal Navbar: `public/images/Logo.jpeg`
+Ruta logo para Scroll progress y Preloader: `public/images/logo-wobble-fast.mp4`
+
+## Estructura de Medios y Datos de las Imágenes telas 
+Las imágenes de la página se encuentran en la carpeta `public/images`. 
+
+
+
+
+
+
+
+
+
+
 > **LOGIC:** When building a specific page, first check `design-system/pages/[page-name].md`.
 > If that file exists, its rules **override** this Master file.
 > If not, strictly follow the rules below.

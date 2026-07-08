@@ -3,12 +3,12 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const slides = [
   {
-    image: '/images/sistemasadministrativos.png',
-    caption: 'Sistema Administrativo de Le Veston'
+    image: '/images/leveston/PAGINALEVESTON+.png',
+    caption: 'Página Web — Le Veston'
   },
   {
-    image: '/images/Pasarela de pagos.png',
-    caption: 'Pasarela de Pagos Integrada'
+    image: '/leveston inventarios.png',
+    caption: 'Sistema de Inventario — Le Veston'
   }
 ]
 

@@ -66,9 +66,9 @@ export function ServicesSection() {
           <div className="relative group perspective-1000">
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink-900)] via-transparent to-transparent z-10 bottom-0 h-full pointer-events-none"></div>
             <img 
-              src="/images/Landing.png" 
-              alt="Diseño de Landing Pages por Napsi Tek"
-              className="w-full h-auto rounded-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] border border-gray-800 transform transition-transform duration-700 group-hover:rotate-y-[5deg] group-hover:rotate-x-[2deg] group-hover:scale-[1.02]"
+              src="/images/leveston/PAGINALEVESTON+.png" 
+              alt="Página web de Le Veston desarrollada por Synaptek"
+              className="w-full h-auto object-contain rounded-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] border border-gray-800 transform transition-transform duration-700 group-hover:rotate-y-[5deg] group-hover:rotate-x-[2deg] group-hover:scale-[1.02]"
               loading="lazy"
             />
           </div>
@@ -199,23 +199,32 @@ export function ServicesSection() {
           </div>
 
           {/* Right Column: Visual Showcase */}
-          <div className="relative group perspective-1000">
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink-900)] via-transparent to-transparent z-10 bottom-0 h-full pointer-events-none"></div>
-            <img 
-              src="/images/sistemasadministrativos.png" 
-              alt="Sistema administrativo y de inventario a la medida por Napsi Tek"
-              className="w-full h-auto rounded-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] border border-gray-800 transform transition-transform duration-700 group-hover:rotate-y-[5deg] group-hover:rotate-x-[2deg] group-hover:scale-[1.02]"
-              loading="lazy"
-            />
-            {/* Floating Element */}
-            <div className="absolute -top-6 -left-6 bg-[var(--ink-800)] border border-[var(--ochre)]/30 p-4 rounded-xl shadow-2xl z-20 flex items-center gap-4 animate-bounce" style={{ animationDelay: '1s' }}>
-              <div className="bg-[var(--ochre)]/20 text-[var(--ochre)] p-2 rounded-full">
-                <BarChart3 className="w-6 h-6" />
+          <div className="relative space-y-6">
+            <div className="relative group">
+              <img 
+                src="/images/sistemasadministrativos.png" 
+                alt="Sistema administrativo desarrollado por Synaptek"
+                className="w-full h-auto object-contain rounded-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] border border-gray-800 transition-transform duration-700 group-hover:scale-[1.02]"
+                loading="lazy"
+              />
+              {/* Floating Element */}
+              <div className="absolute -top-6 -left-6 bg-[var(--ink-800)] border border-[var(--ochre)]/30 p-4 rounded-xl shadow-2xl z-30 flex items-center gap-4 animate-bounce" style={{ animationDelay: '1s' }}>
+                <div className="bg-[var(--ochre)]/20 text-[var(--ochre)] p-2 rounded-full">
+                  <BarChart3 className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-sm">Caso Real</p>
+                  <p className="text-[var(--ochre)] text-xs font-medium">Le Veston</p>
+                </div>
               </div>
-              <div>
-                <p className="text-white font-bold text-sm">Stock Crítico</p>
-                <p className="text-[var(--ochre)] text-xs font-medium">Actualizado al instante</p>
-              </div>
+            </div>
+            <div className="group">
+              <img 
+                src="/leveston inventarios.png" 
+                alt="Sistema de inventario de Le Veston desarrollado por Synaptek"
+                className="w-full h-auto object-contain rounded-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] border border-gray-800 transition-transform duration-700 group-hover:scale-[1.02]"
+                loading="lazy"
+              />
             </div>
           </div>
           

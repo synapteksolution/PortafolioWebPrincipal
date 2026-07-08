@@ -58,6 +58,49 @@ export default function Home() {
       {/* ---------- METODOLOGÍA SECTION ---------- */}
       <MethodologySection />
 
+      {/* ---------- EJEMPLO DE INVENTARIO SECTION ---------- */}
+      <section className="py-24 bg-[var(--ink-50)] relative overflow-hidden">
+        <div className="wrap max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="flex flex-col items-start text-left">
+              <span className="eyebrow text-[var(--moss)] font-bold tracking-[0.2em] uppercase text-xs mb-4">Caso de Éxito</span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[var(--ink-900)] leading-tight">
+                Sistemas de Inventario a Medida
+              </h2>
+              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                Este es un ejemplo de un panel de inventario diseñado por nosotros. Permite una visualización clara e inmediata del valor total en inventario, consumo mensual, alertas de reposición y costos promedios.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                A través de una interfaz limpia e intuitiva, puedes controlar el stock, origen y cobertura de cada artículo, facilitando la toma de decisiones y optimizando la gestión de recursos de tu empresa.
+              </p>
+              <ul className="space-y-3 text-[var(--ink-900)] font-medium">
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[var(--moss)]"></div>
+                  <span>Monitorización de valor y costos en tiempo real</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[var(--moss)]"></div>
+                  <span>Identificación rápida de artículos con baja cobertura</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[var(--moss)]"></div>
+                  <span>Diseño enfocado en la agilidad y experiencia de usuario</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--moss)]/30 to-[var(--ink-900)]/10 rounded-2xl transform rotate-2 scale-[1.03] transition-transform duration-500 group-hover:rotate-3 group-hover:scale-[1.05]"></div>
+              <img 
+                src="/leveston inventarios.png" 
+                alt="Panel de Sistema de Inventario" 
+                className="relative z-10 w-full h-auto rounded-xl shadow-2xl border border-gray-100 transition-transform duration-500 hover:-translate-y-2"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ---------- CONTACTO / CALENDARIO SECTION ---------- */}
       <section className="cta-final py-24 relative overflow-hidden bg-[var(--ink-900)]" id="contacto">
         {/* BACKGROUND IMAGE CON OVERLAY */}
